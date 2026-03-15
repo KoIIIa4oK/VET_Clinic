@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ВЕТ Кабинет - Каталог</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/catalog.css">
+</head>
+<body>
+    <!-- ===== HEADER ===== -->
+    <header class="header">
+        <div class="header__container">
+            <a href="index.html" class="logo">
+                <div class="logo__image">
+                    <img src="images/logo.png" alt="ВЕТ Кабинет">
+                </div>
+                <div class="logo__text">
+                    <h1>ВЕТ Кабинет</h1>
+                    <p>Забота о здоровье питомцев</p>
+                </div>
+            </a>
+            
+            <div class="header__contacts">
+                <a href="tel:+79107763324" class="phone">8 (910) 776-33-24</a>
+                <a href="mailto:simavet@yandex.ru" class="email">simavet@yandex.ru</a>
+            </div>
+
+            <div class="header__location" id="locationBlock">
+                <div class="location__icon">📍</div>
+                <div class="location__info">
+                    <span class="location__label">Ваш город:</span>
+                    <span class="location__city" id="userCity">Москва</span>
+                </div>
+                <button class="location__change" id="changeCityBtn" title="Выбрать город">▼</button>
+            </div>
+            
+            <div class="header__actions">
+                <a href="account.html" class="login-link">Войти</a>
+                <a href="cart.html" title="Корзина">
+                    🛒
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+        </div>
+        
+        <nav class="nav">
+            <ul class="nav__menu">
+                <li class="nav__item"><a href="index.html">Главная</a></li>
+                <li class="nav__item"><a href="catalog.html" class="active">Каталог</a></li>
+                <li class="nav__item"><a href="about.html">О нас</a></li>
+                <li class="nav__item"><a href="contacts.html">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main>
+        <!-- Хлебные крошки -->
+        <div class="breadcrumbs">
+            <div class="container">
+                <ul class="breadcrumbs__list">
+                    <li class="breadcrumbs__item"><a href="index.html">Главная</a></li>
+                    <li class="breadcrumbs__item active">Каталог</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Заголовок страницы -->
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-header__title">Каталог товаров</h1>
+                <p class="page-header__subtitle">Все для здоровья и комфорта ваших питомцев</p>
+            </div>
+        </section>
+
+        <!-- Сетка категорий -->
+        <section class="catalog-section">
+            <div class="container">
+                <div class="catalog-grid" id="catalogGrid">
+                    
+                    <!-- Категория: Все товары -->
+                    <a href="category.html?cat=all" class="catalog-card" data-category="all">
+                        <div class="catalog-card__image">
+                            <img src="images/categories/all.png" alt="Все товары" loading="lazy">
+                        </div>
+                        <div class="catalog-card__content">
+                            <h2 class="catalog-card__title">Все товары</h2>
+                            <p class="catalog-card__desc">Полный ассортимент товаров для ваших питомцев</p>
+                            <span class="catalog-card__count" id="count-all">0 товаров</span>
+                        </div>
+                    </a>
+                    
+                    <!-- Категория: Лекарства -->
+                    <a href="category.html?cat=lekarstva" class="catalog-card" data-category="lekarstva">
+                        <div class="catalog-card__image">
+                            <img src="images/categories/lekarstva.png" alt="Лекарства" loading="lazy">
+                        </div>
+                        <div class="catalog-card__content">
+                            <h2 class="catalog-card__title">Лекарства</h2>
+                            <p class="catalog-card__desc">Антибиотики, обезболивающие, противопаразитарные средства</p>
+                            <span class="catalog-card__count" id="count-lekarstva">0 товаров</span>
+                        </div>
+                    </a>
+
+                    <!-- Категория: Витамины -->
+                    <a href="category.html?cat=vitaminy" class="catalog-card" data-category="vitaminy">
+                        <div class="catalog-card__image">
+                            <img src="images/categories/vitaminy.png" alt="Витамины" loading="lazy">
+                        </div>
+                        <div class="catalog-card__content">
+                            <h2 class="catalog-card__title">Витамины и БАДы</h2>
+                            <p class="catalog-card__desc">Для шерсти, суставов, иммунитета, общеукрепляющие</p>
+                            <span class="catalog-card__count" id="count-vitaminy">0 товаров</span>
+                        </div>
+                    </a>
+
+                    <!-- Категория: Корма -->
+                    <a href="category.html?cat=korma" class="catalog-card" data-category="korma">
+                        <div class="catalog-card__image">
+                            <img src="images/categories/korma.png" alt="Корма" loading="lazy">
+                        </div>
+                        <div class="catalog-card__content">
+                            <h2 class="catalog-card__title">Корма премиум</h2>
+                            <p class="catalog-card__desc">Для кошек, собак, грызунов, птиц. Лечебные и повседневные</p>
+                            <span class="catalog-card__count" id="count-korma">0 товаров</span>
+                        </div>
+                    </a>
+
+                    <!-- Категория: Аксессуары -->
+                    <a href="category.html?cat=aksessuary" class="catalog-card" data-category="aksessuary">
+                        <div class="catalog-card__image">
+                            <img src="images/categories/aksessuary.png" alt="Аксессуары" loading="lazy">
+                        </div>
+                        <div class="catalog-card__content">
+                            <h2 class="catalog-card__title">Аксессуары</h2>
+                            <p class="catalog-card__desc">Миски, лежанки, переноски, игрушки, когтеточки</p>
+                            <span class="catalog-card__count" id="count-aksessuary">0 товаров</span>
+                        </div>
+                    </a>
+
+                    <!-- Категория: Химия для ухода -->
+                    <a href="category.html?cat=khimiya" class="catalog-card" data-category="khimiya">
+                        <div class="catalog-card__image">
+                            <img src="images/categories/khimiya.png" alt="Химия для ухода" loading="lazy">
+                        </div>
+                        <div class="catalog-card__content">
+                            <h2 class="catalog-card__title">Химия для ухода</h2>
+                            <p class="catalog-card__desc">Шампуни, спреи, лосьоны, средства от блох</p>
+                            <span class="catalog-card__count" id="count-khimiya">0 товаров</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Баннер акции -->
+        <section class="catalog-banner">
+            <div class="container">
+                <div class="banner-card">
+                    <div class="banner-card__content">
+                        <h2 class="banner-card__title">Скидка 15% на первый заказ</h2>
+                        <p class="banner-card__desc">Для новых клиентов при регистрации</p>
+                        <a href="category.html?cat=all" class="btn btn-primary">Выбрать товары</a>
+                    </div>
+                    <div class="banner-card__image">
+                        <img src="images/categories/banner-pets.png" alt="Животные">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__col">
+                <h3>ВЕТ Кабинет</h3>
+                <p>Забота о здоровье ваших питомцев с 2010 года.</p>
+                <div class="footer__social">
+                    <a href="https://vk.com/svet_vet_kabinet" title="VK">
+                        <img src="images/icons/vk.svg" alt="VK">
+                    </a>
+                    <a href="https://web.telegram.org/" title="Telegram">
+                        <img src="images/icons/telegram.svg" alt="Telegram">
+                    </a>
+                    <a href="https://ok.ru/" title="Оdnoklassniki">
+                        <img src="images/icons/odnoklassniki.svg" alt="Оdnoklassniki">
+                    </a>
+                </div>
+            </div>
+            <div class="footer__col">
+                <h3>Меню</h3>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="catalog.html">Каталог</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="footer__col">
+                <h3>Контакты</h3>
+                <ul>
+                    <li>📞 <a href="tel:+79107763324">8 (910) 776-33-24</a></li>
+                    <li>✉️ <a href="mailto:simavet@yandex.ru">simavet@yandex.ru</a></li>
+                    <li>📍 <a href="https://yandex.ru/maps/org/veterinarny_kabinet/1272098244/">Владимирская обл., г. Кольчугино, ул. Коллективная, 48</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p>© 2026 ВЕТ Кабинет. Все права защищены.</p>
+            <p>Разработчик: Ногтев Юрий Алексеевич</p>
+        </div>
+    </footer>
+    
+    <script src="js/main.js"></script>
+</body>
+</html>

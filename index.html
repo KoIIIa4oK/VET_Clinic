@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ВЕТ Кабинет - Главная</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <!-- ===== HEADER ===== -->
+    <header class="header">
+        <div class="header__container">
+            <a href="index.html" class="logo">
+                <div class="logo__image">
+                    <img src="images/logo.png" alt="ВЕТ Кабинет">
+                </div>
+                <div class="logo__text">
+                    <h1>ВЕТ Кабинет</h1>
+                    <p>Забота о здоровье питомцев</p>
+                </div>
+            </a>
+            
+            <div class="header__contacts">
+                <a href="tel:+79107763324" class="phone">8 (910) 776-33-24</a>
+                <a href="mailto:simavet@yandex.ru" class="email">simavet@yandex.ru</a>
+            </div>
+
+            <div class="header__location" id="locationBlock">
+                <div class="location__icon">📍</div>
+                <div class="location__info">
+                    <span class="location__label">Ваш город:</span>
+                    <span class="location__city" id="userCity">Москва</span>
+                </div>
+                <button class="location__change" id="changeCityBtn" title="Выбрать город">▼</button>
+            </div>
+            
+            <div class="header__actions">
+                <a href="account.html" class="login-link">Войти</a>
+                <a href="cart.html" title="Корзина">
+                    🛒
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+        </div>
+        
+        <nav class="nav">
+            <ul class="nav__menu">
+                <li class="nav__item"><a href="index.html" class="active">Главная</a></li>
+                <li class="nav__item"><a href="catalog.html">Каталог</a></li>
+                <li class="nav__item"><a href="about.html">О нас</a></li>
+                <li class="nav__item"><a href="contacts.html">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main>
+        <!-- Hero блок -->
+        <section class="hero">
+            <div class="container hero__container">
+                <div class="hero__content">
+                    <h1 class="hero__title">
+                        <span>Всё для здоровья</span><br>ваших питомцев
+                    </h1>
+                    <p class="hero__subtitle">
+                        Только проверенные препараты, качественные корма и профессиональные аксессуары
+                    </p>
+                    <a href="catalog.html" class="btn btn-primary hero__button">Перейти в каталог</a>
+                </div>
+                <div class="hero__image">
+                    <div class="hero__slider">
+                        <div class="slider-container">
+                            <div class="slider-slide active">
+                                <img src="images/clinic/clinic1.jpg" alt="Наша клиника" loading="lazy">
+                            </div>
+                            <div class="slider-slide">
+                                <img src="images/clinic/clinic2.jpg" alt="Команда врачей" loading="lazy">
+                            </div>
+                            <div class="slider-slide">
+                                <img src="images/clinic/clinic3.jpg" alt="Уютная атмосфера" loading="lazy">
+                            </div>
+                        </div>
+                        
+                        <button class="slider-btn slider-btn-prev" aria-label="Предыдущее фото">←</button>
+                        <button class="slider-btn slider-btn-next" aria-label="Следующее фото">→</button>
+                        
+                        <div class="slider-dots">
+                            <span class="slider-dot active" data-index="0"></span>
+                            <span class="slider-dot" data-index="1"></span>
+                            <span class="slider-dot" data-index="2"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Преимущества -->
+        <section class="advantages">
+            <div class="container">
+                <h2 class="section-title">Почему выбирают нас</h2>
+                <div class="advantages__grid">
+                    <div class="advantage-card">
+                        <div class="advantage-card__icon">✅</div>
+                        <h3 class="advantage-card__title">Сертифицированные товары</h3>
+                        <p class="advantage-card__desc">Вся продукция имеет сертификаты качества</p>
+                    </div>
+                    <div class="advantage-card">
+                        <div class="advantage-card__icon">🚚</div>
+                        <h3 class="advantage-card__title">Бесплатная доставка</h3>
+                        <p class="advantage-card__desc">При заказе от 3000 рублей доставим бесплатно</p>
+                    </div>
+                    <div class="advantage-card">
+                        <div class="advantage-card__icon">🏷️</div>
+                        <h3 class="advantage-card__title">Частые скидки</h3>
+                        <p class="advantage-card__desc">Постоянные акции и бонусы для клиентов</p>
+                    </div>
+                    <div class="advantage-card">
+                        <div class="advantage-card__icon">👩‍⚕️</div>
+                        <h3 class="advantage-card__title">Консультация</h3>
+                        <p class="advantage-card__desc">Наши ветеринары готовы помочь 24/7</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Промо-блок -->
+        <section class="promo-section">
+            <div class="container">
+                <div class="promo-card">
+                    <div class="promo-card__content">
+                        <h2 class="promo-card__title">Скидка 15% на первый заказ</h2>
+                        <p class="promo-card__desc">Для новых клиентов при регистрации</p>
+                        <a href="category.html?cat=all" class="btn btn-primary promo-card__btn">Выбрать товары</a>
+                    </div>
+                    <div class="promo-card__image">
+                        <img src="images/categories/banner-pets.png" alt="Животные" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Блок отзывов -->
+        <section class="trust-block">
+            <div class="container">
+                <h2 class="section-title">Отзывы наших клиентов</h2>
+                <div class="reviews-grid">
+                    <div class="review-card">
+                        <div class="review-card__header">
+                            <div class="review-card__avatar">АН</div>
+                            <div>
+                                <div class="review-card__name">Анна Николаева</div>
+                                <div class="review-card__date">15 марта 2026</div>
+                            </div>
+                        </div>
+                        <div class="review-card__rating">
+                            <div class="rating-stars" data-rating="5">
+                                <span class="star" data-value="1">★</span>
+                                <span class="star" data-value="2">★</span>
+                                <span class="star" data-value="3">★</span>
+                                <span class="star" data-value="4">★</span>
+                                <span class="star" data-value="5">★</span>
+                            </div>
+                            <span class="rating-value">5.0</span>
+                        </div>
+                        <p class="review-card__text">
+                            "Отличный магазин! Быстро доставили лекарство для кота, цена приятно удивила."
+                        </p>
+                    </div>
+                    
+                    <div class="review-card">
+                        <div class="review-card__header">
+                            <div class="review-card__avatar">ДМ</div>
+                            <div>
+                                <div class="review-card__name">Дмитрий Морозов</div>
+                                <div class="review-card__date">2 марта 2026</div>
+                            </div>
+                        </div>
+                        <div class="review-card__rating">
+                            <div class="rating-stars" data-rating="4">
+                                <span class="star" data-value="1">★</span>
+                                <span class="star" data-value="2">★</span>
+                                <span class="star" data-value="3">★</span>
+                                <span class="star" data-value="4">★</span>
+                                <span class="star" data-value="5">★</span>
+                            </div>
+                            <span class="rating-value">4.0</span>
+                        </div>
+                        <p class="review-card__text">
+                            "Покупаю корм для собаки только здесь. Широкий выбор и приятные скидки."
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="reviews-footer">
+                    <button class="btn btn-outline add-review-btn">Оставить отзыв</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__col">
+                <h3>ВЕТ Кабинет</h3>
+                <p>Забота о здоровье ваших питомцев с 2010 года.</p>
+                <div class="footer__social">
+                    <a href="https://vk.com/svet_vet_kabinet" title="VK">
+                        <img src="images/icons/vk.svg" alt="VK">
+                    </a>
+                    <a href="https://web.telegram.org/" title="Telegram">
+                        <img src="images/icons/telegram.svg" alt="Telegram">
+                    </a>
+                    <a href="https://ok.ru/" title="Оdnoklassniki">
+                        <img src="images/icons/odnoklassniki.svg" alt="Оdnoklassniki">
+                    </a>
+                </div>
+            </div>
+            <div class="footer__col">
+                <h3>Меню</h3>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="catalog.html">Каталог</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="footer__col">
+                <h3>Контакты</h3>
+                <ul>
+                    <li>📞 <a href="tel:+79107763324">8 (910) 776-33-24</a></li>
+                    <li>✉️ <a href="mailto:simavet@yandex.ru">simavet@yandex.ru</a></li>
+                    <li>📍 <a href="https://yandex.ru/maps/org/veterinarny_kabinet/1272098244/">Владимирская обл., г. Кольчугино, ул. Коллективная, 48</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p>© 2026 ВЕТ Кабинет. Все права защищены.</p>
+            <p>Разработчик: Ногтев Юрий Алексеевич</p>
+        </div>
+    </footer>
+    
+    <script src="js/main.js"></script>
+</body>
+</html>

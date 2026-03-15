@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ВЕТ Кабинет - Оформление заказа</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/checkout.css">
+</head>
+<body>
+    <!-- ===== HEADER ===== -->
+    <header class="header">
+        <div class="header__container">
+            <a href="index.html" class="logo">
+                <div class="logo__image">
+                    <img src="images/logo.png" alt="ВЕТ Кабинет">
+                </div>
+                <div class="logo__text">
+                    <h1>ВЕТ Кабинет</h1>
+                    <p>Забота о здоровье питомцев</p>
+                </div>
+            </a>
+            
+            <div class="header__contacts">
+                <a href="tel:+79107763324" class="phone">8 (910) 776-33-24</a>
+                <a href="mailto:simavet@yandex.ru" class="email">simavet@yandex.ru</a>
+            </div>
+
+            <div class="header__location" id="locationBlock">
+                <div class="location__icon">📍</div>
+                <div class="location__info">
+                    <span class="location__label">Ваш город:</span>
+                    <span class="location__city" id="userCity">Москва</span>
+                </div>
+                <button class="location__change" id="changeCityBtn" title="Выбрать город">▼</button>
+            </div>
+            
+            <div class="header__actions">
+                <a href="account.html" class="login-link">Войти</a>
+                <a href="cart.html" title="Корзина">
+                    🛒
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+        </div>
+        
+        <nav class="nav">
+            <ul class="nav__menu">
+                <li class="nav__item"><a href="index.html">Главная</a></li>
+                <li class="nav__item"><a href="catalog.html">Каталог</a></li>
+                <li class="nav__item"><a href="about.html">О нас</a></li>
+                <li class="nav__item"><a href="contacts.html">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main>
+        <!-- Хлебные крошки -->
+        <div class="breadcrumbs">
+            <div class="container">
+                <ul class="breadcrumbs__list">
+                    <li class="breadcrumbs__item"><a href="index.html">Главная</a></li>
+                    <li class="breadcrumbs__item"><a href="cart.html">Корзина</a></li>
+                    <li class="breadcrumbs__item active">Оформление заказа</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Заголовок страницы -->
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-header__title">Оформление заказа</h1>
+                <p class="page-header__subtitle">Заполните данные для доставки</p>
+            </div>
+        </section>
+
+        <!-- Форма оформления -->
+        <section class="checkout-section">
+            <div class="container">
+                <div class="checkout-layout">
+                    <!-- Левая колонка - данные получателя -->
+                    <div class="checkout-form">
+                        <h2 class="form-section-title">Получатель</h2>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name" class="form-label">Имя *</label>
+                                <input type="text" class="form-input" id="name" placeholder="Иван" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName" class="form-label">Фамилия</label>
+                                <input type="text" class="form-input" id="lastName" placeholder="Петров">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email *</label>
+                                <input type="email" class="form-input" id="email" placeholder="ivan@example.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone" class="form-label">Телефон *</label>
+                                <input type="tel" class="form-input" id="phone" placeholder="+7 (910) 776-33-24" required>
+                            </div>
+                        </div>
+                        
+                        <h2 class="form-section-title">Доставка</h2>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="city" class="form-label">Город *</label>
+                                <input type="text" class="form-input" id="city" placeholder="Москва" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="street" class="form-label">Улица *</label>
+                                <input type="text" class="form-input" id="street" placeholder="Ленина" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="house" class="form-label">Дом *</label>
+                                <input type="text" class="form-input" id="house" placeholder="15" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="apartment" class="form-label">Квартира/офис</label>
+                                <input type="text" class="form-input" id="apartment" placeholder="42">
+                            </div>
+                            <div class="form-group">
+                                <label for="postal" class="form-label">Индекс</label>
+                                <input type="text" class="form-input" id="postal" placeholder="101000">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="comment" class="form-label">Комментарий к заказу</label>
+                            <textarea class="form-input form-textarea" id="comment" rows="3" placeholder="Домофон, время доставки..."></textarea>
+                        </div>
+                        
+                        <h2 class="form-section-title">Способ доставки</h2>
+                        
+                        <div class="delivery-options">
+                            <label class="delivery-option">
+                                <input type="radio" name="delivery" value="courier" checked>
+                                <div class="option-content">
+                                    <span class="option-title">Курьером</span>
+                                    <span class="option-price">300 ₽</span>
+                                    <span class="option-desc">Доставка курьером по адресу</span>
+                                </div>
+                            </label>
+                            
+                            <label class="delivery-option">
+                                <input type="radio" name="delivery" value="pickup">
+                                <div class="option-content">
+                                    <span class="option-title">Самовывоз</span>
+                                    <span class="option-price">Бесплатно</span>
+                                    <span class="option-desc">г. Кольчугино, ул. Коллективная, 48</span>
+                                </div>
+                            </label>
+                            
+                            <label class="delivery-option">
+                                <input type="radio" name="delivery" value="post">
+                                <div class="option-content">
+                                    <span class="option-title">Почта России</span>
+                                    <span class="option-price">350 ₽</span>
+                                    <span class="option-desc">Отправка почтой по России</span>
+                                </div>
+                            </label>
+                        </div>
+                        
+                        <h2 class="form-section-title">Способ оплаты</h2>
+                        
+                        <div class="payment-options">
+                            <label class="payment-option">
+                                <input type="radio" name="payment" value="cash" checked>
+                                <div class="option-content">
+                                    <span class="option-title">Наличными при получении</span>
+                                </div>
+                            </label>
+                            
+                            <label class="payment-option">
+                                <input type="radio" name="payment" value="card">
+                                <div class="option-content">
+                                    <span class="option-title">Картой онлайн</span>
+                                </div>
+                            </label>
+                            
+                            <label class="payment-option">
+                                <input type="radio" name="payment" value="sbp">
+                                <div class="option-content">
+                                    <span class="option-title">СБП (Система быстрых платежей)</span>
+                                </div>
+                            </label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-checkbox">
+                                <input type="checkbox" name="agreement" id="agreement" required>
+                                <span class="form-checkbox__text">Я согласен с условиями обработки персональных данных *</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- Правая колонка - состав заказа -->
+                    <div class="order-summary">
+                        <h2 class="summary-title">Ваш заказ</h2>
+                        
+                        <div class="order-items" id="orderItems">
+                            <!-- Товары будут добавлены через JS -->
+                        </div>
+                        
+                        <div class="summary-row">
+                            <span>Товаров:</span>
+                            <span id="orderItemsCount">0</span>
+                        </div>
+                        
+                        <div class="summary-row">
+                            <span>Сумма:</span>
+                            <span id="orderSubtotal">0 ₽</span>
+                        </div>
+                        
+                        <div class="summary-row">
+                            <span>Доставка:</span>
+                            <span id="orderShipping">300 ₽</span>
+                        </div>
+                        
+                        <div class="summary-row summary-total">
+                            <span>Итого:</span>
+                            <span id="orderTotal">0 ₽</span>
+                        </div>
+                        
+                        <button class="btn btn-primary place-order-btn" id="placeOrderBtn">Подтвердить заказ</button>
+                        
+                        <p class="order-note">Нажимая кнопку, вы подтверждаете, что ознакомлены и согласны с условиями обработки персональных данных</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__col">
+                <h3>ВЕТ Кабинет</h3>
+                <p>Забота о здоровье ваших питомцев с 2010 года.</p>
+                <div class="footer__social">
+                    <a href="https://vk.com/svet_vet_kabinet" title="VK">
+                        <img src="images/icons/vk.svg" alt="VK">
+                    </a>
+                    <a href="https://web.telegram.org/" title="Telegram">
+                        <img src="images/icons/telegram.svg" alt="Telegram">
+                    </a>
+                    <a href="https://ok.ru/" title="Оdnoklassniki">
+                        <img src="images/icons/odnoklassniki.svg" alt="Оdnoklassniki">
+                    </a>
+                </div>
+            </div>
+            <div class="footer__col">
+                <h3>Меню</h3>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="catalog.html">Каталог</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="footer__col">
+                <h3>Контакты</h3>
+                <ul>
+                    <li>📞 <a href="tel:+79107763324">8 (910) 776-33-24</a></li>
+                    <li>✉️ <a href="mailto:simavet@yandex.ru">simavet@yandex.ru</a></li>
+                    <li>📍 <a href="https://yandex.ru/maps/org/veterinarny_kabinet/1272098244/">Владимирская обл., г. Кольчугино, ул. Коллективная, 48</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p>© 2026 ВЕТ Кабинет. Все права защищены.</p>
+            <p>Разработчик: Ногтев Юрий Алексеевич</p>
+        </div>
+    </footer>
+
+    <!-- Шаблон товара в заказе -->
+    <template id="orderItemTemplate">
+        <div class="order-item">
+            <div class="order-item__image">
+                <img src="" alt="" loading="lazy">
+            </div>
+            <div class="order-item__info">
+                <div class="order-item__title"></div>
+                <div class="order-item__price"></div>
+                <div class="order-item__quantity">x <span></span></div>
+            </div>
+        </div>
+    </template>
+
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // ===== ЭЛЕМЕНТЫ СТРАНИЦЫ =====
+            const elements = {
+                orderItems: document.getElementById('orderItems'),
+                orderTemplate: document.getElementById('orderItemTemplate'),
+                orderItemsCount: document.getElementById('orderItemsCount'),
+                orderSubtotal: document.getElementById('orderSubtotal'),
+                orderShipping: document.getElementById('orderShipping'),
+                orderTotal: document.getElementById('orderTotal'),
+                placeOrderBtn: document.getElementById('placeOrderBtn'),
+                deliveryRadios: document.querySelectorAll('input[name="delivery"]'),
+                phoneInput: document.getElementById('phone')
+            };
+
+            // ===== ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ =====
+            const loadCart = () => JSON.parse(localStorage.getItem('vetCart') || '[]');
+            
+            const formatPrice = (price) => parseInt(price).toLocaleString() + ' ₽';
+            
+            const getShippingCost = (method) => {
+                const costs = { courier: 300, post: 350, pickup: 0 };
+                return costs[method] || 300;
+            };
+
+            // ===== ОБНОВЛЕНИЕ СОСТАВА ЗАКАЗА =====
+            function updateOrderSummary() {
+                const cart = loadCart();
+                
+                if (cart.length === 0) {
+                    window.location.href = 'catalog.html';
+                    return;
+                }
+
+                elements.orderItems.innerHTML = '';
+                
+                cart.forEach(item => {
+                    const orderItem = elements.orderTemplate.content.cloneNode(true);
+                    
+                    const img = orderItem.querySelector('.order-item__image img');
+                    img.src = item.image || 'images/products/placeholder.jpg';
+                    img.alt = item.name;
+                    
+                    orderItem.querySelector('.order-item__title').textContent = item.name;
+                    orderItem.querySelector('.order-item__price').textContent = formatPrice(item.price);
+                    orderItem.querySelector('.order-item__quantity span').textContent = item.quantity || 1;
+                    
+                    elements.orderItems.appendChild(orderItem);
+                });
+
+                const itemsCount = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+                const subtotal = cart.reduce((sum, item) => sum + (parseInt(item.price) * (item.quantity || 1)), 0);
+                
+                const selectedDelivery = document.querySelector('input[name="delivery"]:checked')?.value || 'courier';
+                const shipping = getShippingCost(selectedDelivery);
+                
+                elements.orderItemsCount.textContent = itemsCount;
+                elements.orderSubtotal.textContent = formatPrice(subtotal);
+                elements.orderShipping.textContent = shipping === 0 ? 'Бесплатно' : formatPrice(shipping);
+                elements.orderTotal.textContent = formatPrice(subtotal + shipping);
+            }
+
+            // ===== ВАЛИДАЦИЯ ФОРМЫ =====
+            function validateForm() {
+                const fields = {
+                    name: document.getElementById('name')?.value.trim(),
+                    email: document.getElementById('email')?.value.trim(),
+                    phone: document.getElementById('phone')?.value.trim(),
+                    city: document.getElementById('city')?.value.trim(),
+                    street: document.getElementById('street')?.value.trim(),
+                    house: document.getElementById('house')?.value.trim(),
+                    agreement: document.getElementById('agreement')?.checked
+                };
+
+                const required = [
+                    { field: 'name', message: 'Введите имя' },
+                    { field: 'email', message: 'Введите email' },
+                    { field: 'phone', message: 'Введите телефон' },
+                    { field: 'city', message: 'Введите город' },
+                    { field: 'street', message: 'Введите улицу' },
+                    { field: 'house', message: 'Введите номер дома' }
+                ];
+
+                for (const { field, message } of required) {
+                    if (!fields[field]) {
+                        alert(message);
+                        return false;
+                    }
+                }
+
+                if (!fields.agreement) {
+                    alert('Необходимо согласие на обработку персональных данных');
+                    return false;
+                }
+
+                return true;
+            }
+
+            // ===== МАСКА ДЛЯ ТЕЛЕФОНА =====
+            function setupPhoneMask() {
+                if (!elements.phoneInput) return;
+                
+                elements.phoneInput.addEventListener('input', (e) => {
+                    let value = e.target.value.replace(/\D/g, '');
+                    
+                    if (value.length > 0) {
+                        if (value.length <= 1) {
+                            value = '+7 (' + value;
+                        } else if (value.length <= 4) {
+                            value = '+7 (' + value.slice(1, 4);
+                        } else if (value.length <= 7) {
+                            value = '+7 (' + value.slice(1, 4) + ') ' + value.slice(4, 7);
+                        } else if (value.length <= 9) {
+                            value = '+7 (' + value.slice(1, 4) + ') ' + value.slice(4, 7) + '-' + value.slice(7, 9);
+                        } else {
+                            value = '+7 (' + value.slice(1, 4) + ') ' + value.slice(4, 7) + '-' + value.slice(7, 9) + '-' + value.slice(9, 11);
+                        }
+                        e.target.value = value;
+                    }
+                });
+            }
+
+            // ===== ОБРАБОТЧИК ОФОРМЛЕНИЯ =====
+            function setupPlaceOrder() {
+                if (!elements.placeOrderBtn) return;
+                
+                elements.placeOrderBtn.addEventListener('click', () => {
+                    const cart = loadCart();
+                    
+                    if (cart.length === 0) {
+                        alert('Корзина пуста');
+                        return;
+                    }
+                    
+                    if (!validateForm()) return;
+                    
+                    const isLoggedIn = localStorage.getItem('vetUserLoggedIn') === 'true';
+                    
+                    if (!isLoggedIn) {
+                        const action = confirm('Вы не авторизованы. Хотите войти в аккаунт?');
+                        if (action) {
+                            window.location.href = 'account.html';
+                            return;
+                        }
+                    }
+                    
+                    alert('Спасибо! Ваш заказ принят.');
+                    localStorage.removeItem('vetCart');
+                    window.location.href = 'index.html';
+                });
+            }
+
+            // ===== ИНИЦИАЛИЗАЦИЯ =====
+            elements.deliveryRadios.forEach(radio => {
+                radio.addEventListener('change', updateOrderSummary);
+            });
+
+            setupPhoneMask();
+            setupPlaceOrder();
+            updateOrderSummary();
+        });
+    </script>
+</body>
+</html>

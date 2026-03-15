@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ВЕТ Кабинет - Корзина</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/cart.css">
+</head>
+<body>
+    <!-- ===== HEADER ===== -->
+    <header class="header">
+        <div class="header__container">
+            <a href="index.html" class="logo">
+                <div class="logo__image">
+                    <img src="images/logo.png" alt="ВЕТ Кабинет">
+                </div>
+                <div class="logo__text">
+                    <h1>ВЕТ Кабинет</h1>
+                    <p>Забота о здоровье питомцев</p>
+                </div>
+            </a>
+            
+            <div class="header__contacts">
+                <a href="tel:+79107763324" class="phone">8 (910) 776-33-24</a>
+                <a href="mailto:simavet@yandex.ru" class="email">simavet@yandex.ru</a>
+            </div>
+
+            <div class="header__location" id="locationBlock">
+                <div class="location__icon">📍</div>
+                <div class="location__info">
+                    <span class="location__label">Ваш город:</span>
+                    <span class="location__city" id="userCity">Москва</span>
+                </div>
+                <button class="location__change" id="changeCityBtn" title="Выбрать город">▼</button>
+            </div>
+            
+            <div class="header__actions">
+                <a href="account.html" class="login-link">Войти</a>
+                <a href="cart.html" title="Корзина">
+                    🛒
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+        </div>
+        
+        <nav class="nav">
+            <ul class="nav__menu">
+                <li class="nav__item"><a href="index.html">Главная</a></li>
+                <li class="nav__item"><a href="catalog.html">Каталог</a></li>
+                <li class="nav__item"><a href="about.html">О нас</a></li>
+                <li class="nav__item"><a href="contacts.html">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main>
+        <!-- Хлебные крошки -->
+        <div class="breadcrumbs">
+            <div class="container">
+                <ul class="breadcrumbs__list">
+                    <li class="breadcrumbs__item"><a href="index.html">Главная</a></li>
+                    <li class="breadcrumbs__item active">Корзина</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Заголовок страницы -->
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-header__title">Корзина</h1>
+                <p class="page-header__subtitle">Товары, которые вы выбрали</p>
+            </div>
+        </section>
+
+        <!-- Корзина -->
+        <section class="cart-section">
+            <div class="container">
+                <div class="cart-layout">
+                    <!-- Левая колонка - список товаров -->
+                    <div class="cart-items">
+                        <div class="cart-header">
+                            <div class="cart-header__product">Товар</div>
+                            <div class="cart-header__price">Цена</div>
+                            <div class="cart-header__quantity">Количество</div>
+                            <div class="cart-header__total">Сумма</div>
+                            <div class="cart-header__remove"></div>
+                        </div>
+                        
+                        <div class="cart-list" id="cartList">
+                            <!-- Товары будут добавлены через JS -->
+                        </div>
+                        
+                        <div class="cart-actions">
+                            <button class="btn btn-outline" id="clearCartBtn">Очистить корзину</button>
+                            <a href="catalog.html" class="btn btn-outline">Продолжить покупки</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Правая колонка - итоги -->
+                    <div class="cart-summary">
+                        <h2 class="summary-title">Ваш заказ</h2>
+                        
+                        <div class="summary-row">
+                            <span>Товаров:</span>
+                            <span id="summaryItems">0</span>
+                        </div>
+                        
+                        <div class="summary-row">
+                            <span>Сумма:</span>
+                            <span id="summarySubtotal">0 ₽</span>
+                        </div>
+                        
+                        <div class="summary-row">
+                            <span>Доставка:</span>
+                            <span id="summaryShipping">0 ₽</span>
+                        </div>
+                        
+                        <div class="summary-row summary-total">
+                            <span>Итого:</span>
+                            <span id="summaryTotal">0 ₽</span>
+                        </div>
+                        
+                        <a href="checkout.html" class="btn btn-primary checkout-btn" id="checkoutBtn">Оформить заказ</a>
+                    </div>
+                </div>
+                
+                <!-- Пустая корзина -->
+                <div class="cart-empty" id="cartEmpty">
+                    <div class="empty-icon">🛒</div>
+                    <h2 class="empty-title">Корзина пуста</h2>
+                    <p class="empty-text">Добавьте товары в корзину, чтобы оформить заказ</p>
+                    <a href="catalog.html" class="btn btn-primary">Перейти в каталог</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__col">
+                <h3>ВЕТ Кабинет</h3>
+                <p>Забота о здоровье ваших питомцев с 2010 года.</p>
+                <div class="footer__social">
+                    <a href="https://vk.com/svet_vet_kabinet" title="VK">
+                        <img src="images/icons/vk.svg" alt="VK">
+                    </a>
+                    <a href="https://web.telegram.org/" title="Telegram">
+                        <img src="images/icons/telegram.svg" alt="Telegram">
+                    </a>
+                    <a href="https://ok.ru/" title="Оdnoklassniki">
+                        <img src="images/icons/odnoklassniki.svg" alt="Оdnoklassniki">
+                    </a>
+                </div>
+            </div>
+            <div class="footer__col">
+                <h3>Меню</h3>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="catalog.html">Каталог</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="footer__col">
+                <h3>Контакты</h3>
+                <ul>
+                    <li>📞 <a href="tel:+79107763324">8 (910) 776-33-24</a></li>
+                    <li>✉️ <a href="mailto:simavet@yandex.ru">simavet@yandex.ru</a></li>
+                    <li>📍 <a href="https://yandex.ru/maps/org/veterinarny_kabinet/1272098244/">Владимирская обл., г. Кольчугино, ул. Коллективная, 48</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p>© 2026 ВЕТ Кабинет. Все права защищены.</p>
+            <p>Разработчик: Ногтев Юрий Алексеевич</p>
+        </div>
+    </footer>
+
+    <!-- Шаблон товара в корзине -->
+    <template id="cartItemTemplate">
+        <div class="cart-item" data-id="">
+            <div class="cart-item__product">
+                <div class="cart-item__image">
+                    <img src="" alt="" loading="lazy">
+                </div>
+                <div class="cart-item__info">
+                    <a href="" class="cart-item__title"></a>
+                    <div class="cart-item__sku"></div>
+                </div>
+            </div>
+            <div class="cart-item__price"></div>
+            <div class="cart-item__quantity">
+                <button class="quantity-btn minus">−</button>
+                <input type="number" class="quantity-input" value="1" min="1" max="99">
+                <button class="quantity-btn plus">+</button>
+            </div>
+            <div class="cart-item__total"></div>
+            <div class="cart-item__remove">
+                <button class="remove-btn" title="Удалить">✕</button>
+            </div>
+        </div>
+    </template>
+
+    <script src="js/main.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+            // ===== ЭЛЕМЕНТЫ СТРАНИЦЫ =====
+            const elements = {
+                cartList: document.getElementById('cartList'),
+                cartEmpty: document.getElementById('cartEmpty'),
+                cartItemsSection: document.querySelector('.cart-items'),
+                cartSummary: document.querySelector('.cart-summary'),
+                template: document.getElementById('cartItemTemplate'),
+                clearCartBtn: document.getElementById('clearCartBtn'),
+                checkoutBtn: document.getElementById('checkoutBtn'),
+                summaryItems: document.getElementById('summaryItems'),
+                summarySubtotal: document.getElementById('summarySubtotal'),
+                summaryShipping: document.getElementById('summaryShipping'),
+                summaryTotal: document.getElementById('summaryTotal')
+            };
+
+            // ===== ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ =====
+            const loadCart = () => JSON.parse(localStorage.getItem('vetCart') || '[]');
+            
+            const saveCart = (cart) => {
+                localStorage.setItem('vetCart', JSON.stringify(cart));
+                if (typeof updateCartCounter === 'function') updateCartCounter();
+            };
+            
+            const formatPrice = (price) => parseInt(price).toLocaleString() + ' ₽';
+
+            // ===== РАСЧЕТ ИТОГОВ =====
+            const calculateTotals = (cart) => {
+                const itemsCount = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+                const subtotal = cart.reduce((sum, item) => sum + (parseInt(item.price) * (item.quantity || 1)), 0);
+                const shipping = subtotal >= 3000 ? 0 : 300;
+                
+                return { itemsCount, subtotal, shipping, total: subtotal + shipping };
+            };
+
+            // ===== ОБНОВЛЕНИЕ ИТОГОВ =====
+            const updateSummary = (cart) => {
+                const totals = calculateTotals(cart);
+                elements.summaryItems.textContent = totals.itemsCount;
+                elements.summarySubtotal.textContent = formatPrice(totals.subtotal);
+                elements.summaryShipping.textContent = totals.shipping === 0 ? 'Бесплатно' : formatPrice(totals.shipping);
+                elements.summaryTotal.textContent = formatPrice(totals.total);
+            };
+
+            // ===== ОБНОВЛЕНИЕ КОЛИЧЕСТВА ТОВАРА =====
+            const updateItemQuantity = (itemId, newQuantity) => {
+                const cart = loadCart();
+                const itemIndex = cart.findIndex(item => item.id == itemId);
+                
+                if (itemIndex !== -1) {
+                    cart[itemIndex].quantity = parseInt(newQuantity);
+                    saveCart(cart);
+                    renderCart();
+                }
+            };
+
+            // ===== УДАЛЕНИЕ ТОВАРА =====
+            const removeItem = (itemId) => {
+                if (!confirm('Удалить товар из корзины?')) return;
+                
+                const cart = loadCart().filter(item => item.id != itemId);
+                saveCart(cart);
+                renderCart();
+                showNotification('Товар удален из корзины');
+            };
+
+            // ===== ОЧИСТКА КОРЗИНЫ =====
+            const clearCart = () => {
+                if (!confirm('Очистить всю корзину?')) return;
+                
+                saveCart([]);
+                renderCart();
+                showNotification('Корзина очищена');
+            };
+
+            // ===== УВЕДОМЛЕНИЕ =====
+            const showNotification = (message) => {
+                document.querySelector('.cart-notification')?.remove();
+                
+                const notification = document.createElement('div');
+                notification.className = 'cart-notification';
+                notification.textContent = message;
+                document.body.appendChild(notification);
+                
+                setTimeout(() => notification.classList.add('show'), 10);
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                    setTimeout(() => notification.remove(), 300);
+                }, 2000);
+            };
+
+            // ===== ОТРИСОВКА КОРЗИНЫ =====
+            function renderCart() {
+                const cart = loadCart();
+                
+                if (cart.length === 0) {
+                    elements.cartEmpty.style.display = 'block';
+                    elements.cartItemsSection.style.display = 'none';
+                    elements.cartSummary.style.display = 'none';
+                    return;
+                }
+                
+                elements.cartEmpty.style.display = 'none';
+                elements.cartItemsSection.style.display = 'block';
+                elements.cartSummary.style.display = 'block';
+                elements.cartList.innerHTML = '';
+
+                cart.forEach((item, index) => {
+                    const cartItem = elements.template.content.cloneNode(true);
+                    const itemDiv = cartItem.querySelector('.cart-item');
+                    
+                    itemDiv.dataset.id = item.id;
+                    itemDiv.dataset.index = index;
+
+                    // Изображение
+                    const img = cartItem.querySelector('.cart-item__image img');
+                    img.src = item.image || 'images/products/placeholder.jpg';
+                    img.alt = item.name;
+
+                    // Название и ссылка
+                    const titleLink = cartItem.querySelector('.cart-item__title');
+                    titleLink.href = `product.html?id=${item.id}`;
+                    titleLink.textContent = item.name;
+
+                    // Артикул
+                    cartItem.querySelector('.cart-item__sku').textContent = `Артикул: ${item.sku || '----'}`;
+
+                    // Цена
+                    const priceEl = cartItem.querySelector('.cart-item__price');
+                    priceEl.textContent = formatPrice(item.price);
+
+                    // Количество
+                    const quantityInput = cartItem.querySelector('.quantity-input');
+                    quantityInput.value = item.quantity || 1;
+
+                    // Сумма позиции
+                    const totalEl = cartItem.querySelector('.cart-item__total');
+                    totalEl.textContent = formatPrice(parseInt(item.price) * (item.quantity || 1));
+
+                    // Обработчики кнопок количества
+                    const minusBtn = cartItem.querySelector('.minus');
+                    const plusBtn = cartItem.querySelector('.plus');
+                    
+                    minusBtn.addEventListener('click', () => {
+                        const val = parseInt(quantityInput.value) || 1;
+                        if (val > 1) {
+                            quantityInput.value = val - 1;
+                            updateItemQuantity(item.id, quantityInput.value);
+                        }
+                    });
+
+                    plusBtn.addEventListener('click', () => {
+                        const val = parseInt(quantityInput.value) || 1;
+                        if (val < 99) {
+                            quantityInput.value = val + 1;
+                            updateItemQuantity(item.id, quantityInput.value);
+                        }
+                    });
+
+                    quantityInput.addEventListener('change', function() {
+                        let val = parseInt(this.value) || 1;
+                        val = Math.min(99, Math.max(1, val));
+                        this.value = val;
+                        updateItemQuantity(item.id, val);
+                    });
+
+                    // Кнопка удаления
+                    const removeBtn = cartItem.querySelector('.remove-btn');
+                    removeBtn.addEventListener('click', () => removeItem(item.id));
+
+                    elements.cartList.appendChild(cartItem);
+                });
+
+                updateSummary(cart);
+            }
+
+            // ===== ОБРАБОТЧИКИ =====
+            elements.clearCartBtn?.addEventListener('click', clearCart);
+            
+            elements.checkoutBtn?.addEventListener('click', (e) => {
+                if (loadCart().length === 0) {
+                    e.preventDefault();
+                    alert('Корзина пуста');
+                }
+            });
+
+            // ===== ЗАПУСК =====
+            renderCart();
+        });
+    </script>
+</body>
+</html>

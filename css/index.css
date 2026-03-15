@@ -1,0 +1,505 @@
+/* ===== СТИЛИ ТОЛЬКО ДЛЯ ГЛАВНОЙ СТРАНИЦЫ ===== */
+
+/* ===== HERO БЛОК ===== */
+.hero {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 80px 0;
+}
+
+.hero__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.hero__content {
+    animation: fadeInUp 1s ease;
+}
+
+.hero__title {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero__title span {
+    color: var(--color-primary);
+}
+
+.hero__subtitle {
+    font-size: 1.2rem;
+    color: var(--color-text-light);
+    margin-bottom: 30px;
+}
+
+.hero__image {
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-lg);
+    padding: 20px;
+    box-shadow: var(--box-shadow);
+    animation: fadeInUp 1s ease 0.2s both;
+}
+
+/* ===== СЛАЙДЕР ===== */
+.hero__slider {
+    position: relative;
+    width: 100%;
+    height: 350px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+}
+
+.slider-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.slider-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}
+
+.slider-slide.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.slider-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Кнопки слайдера */
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.slider-btn:hover {
+    background-color: var(--color-white);
+    box-shadow: 0 0 15px rgba(76, 175, 80, 0.5);
+    transform: translateY(-50%) scale(1.05);
+}
+
+.slider-btn-prev {
+    left: 15px;
+}
+
+.slider-btn-next {
+    right: 15px;
+}
+
+/* Индикаторы слайдера */
+.slider-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 10;
+}
+
+.slider-dot {
+    width: 12px;
+    height: 12px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: var(--transition);
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+.slider-dot.active {
+    background-color: var(--color-primary);
+    transform: scale(1.3);
+    box-shadow: 0 0 12px rgba(76, 175, 80, 0.8);
+    border-color: transparent;
+}
+
+.slider-dot:hover {
+    background-color: var(--color-white);
+    transform: scale(1.2);
+}
+
+/* ===== ПРЕИМУЩЕСТВА ===== */
+.advantages {
+    padding: 80px 0;
+    background-color: var(--color-white);
+}
+
+.advantages__grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.advantage-card {
+    text-align: center;
+    padding: 30px 20px;
+    border-radius: var(--border-radius);
+    background-color: var(--color-secondary);
+    transition: var(--transition);
+    cursor: default;
+    width: calc(25% - 23px);
+    min-width: 250px;
+    max-width: 300px;
+    flex: 0 1 auto;
+}
+
+.advantage-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--box-shadow);
+}
+
+.advantage-card__icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.advantage-card__title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--color-primary);
+}
+
+.advantage-card__desc {
+    color: var(--color-text-light);
+}
+
+/* ===== ПРОМО-БЛОК ===== */
+.promo-section {
+    padding: 60px 0;
+    background-color: var(--color-white);
+}
+
+.promo-card {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    border-radius: var(--border-radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px 70px;
+    color: var(--color-white);
+    overflow: hidden;
+    box-shadow: var(--box-shadow-hover);
+}
+
+.promo-card__content {
+    flex: 1;
+}
+
+.promo-card__title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-white);
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.promo-card__desc {
+    font-size: 1.3rem;
+    margin-bottom: 25px;
+    opacity: 0.95;
+}
+
+.promo-card__btn {
+    background-color: var(--color-accent);
+    color: var(--color-white);
+    padding: 15px 50px;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);
+}
+
+.promo-card__btn:hover {
+    background-color: var(--color-accent-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 152, 0, 0.4);
+}
+
+.promo-card__image {
+    flex: 0 0 250px;
+    margin-left: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.promo-card__image img {
+    width: 130%;
+    height: auto;
+    max-height: 200px;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2));
+}
+
+/* ===== БЛОК ОТЗЫВОВ ===== */
+.trust-block {
+    padding: 80px 0;
+    background-color: var(--color-white);
+}
+
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.review-card {
+    background-color: var(--color-secondary);
+    border-radius: var(--border-radius);
+    padding: 30px;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+}
+
+.review-card__header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.review-card__avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.review-card__name {
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.review-card__date {
+    font-size: 0.8rem;
+    color: var(--color-text-light);
+}
+
+.review-card__text {
+    font-style: italic;
+    color: var(--color-text-light);
+    line-height: 1.6;
+}
+
+/* Звездный рейтинг */
+.review-card__rating {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0 15px;
+}
+
+.rating-stars {
+    display: flex;
+    gap: 4px;
+    font-size: 1.3rem;
+    color: #ddd;
+    cursor: pointer;
+}
+
+.rating-stars .star {
+    transition: var(--transition);
+    user-select: none;
+}
+
+/* Активные звезды */
+.rating-stars[data-rating="1"] .star[data-value="1"],
+.rating-stars[data-rating="2"] .star[data-value="1"],
+.rating-stars[data-rating="2"] .star[data-value="2"],
+.rating-stars[data-rating="3"] .star[data-value="1"],
+.rating-stars[data-rating="3"] .star[data-value="2"],
+.rating-stars[data-rating="3"] .star[data-value="3"],
+.rating-stars[data-rating="4"] .star[data-value="1"],
+.rating-stars[data-rating="4"] .star[data-value="2"],
+.rating-stars[data-rating="4"] .star[data-value="3"],
+.rating-stars[data-rating="4"] .star[data-value="4"],
+.rating-stars[data-rating="5"] .star[data-value="1"],
+.rating-stars[data-rating="5"] .star[data-value="2"],
+.rating-stars[data-rating="5"] .star[data-value="3"],
+.rating-stars[data-rating="5"] .star[data-value="4"],
+.rating-stars[data-rating="5"] .star[data-value="5"] {
+    color: #FFD700;
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.3);
+}
+
+.rating-stars.interactive .star:hover {
+    transform: scale(1.2);
+    color: #FFD700;
+}
+
+.rating-stars.interactive .star:hover ~ .star {
+    color: #ddd;
+}
+
+.rating-value {
+    font-weight: 700;
+    color: var(--color-primary);
+    background-color: rgba(76, 175, 80, 0.1);
+    padding: 3px 8px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+/* Кнопка добавления отзыва */
+.reviews-footer {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.add-review-btn {
+    padding: 12px 40px;
+    font-size: 1rem;
+}
+
+/* ===== АДАПТИВНОСТЬ ===== */
+@media (max-width: 1200px) {
+    .advantage-card {
+        width: calc(33.333% - 20px);
+    }
+}
+
+@media (max-width: 992px) {
+    .hero__slider {
+        height: 300px;
+    }
+    
+    .advantage-card {
+        width: calc(50% - 15px);
+        min-width: 280px;
+    }
+    
+    .promo-card {
+        padding: 40px;
+    }
+    
+    .promo-card__title {
+        font-size: 2rem;
+    }
+    
+    .promo-card__desc {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero__container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .hero__title {
+        font-size: 2.2rem;
+    }
+    
+    .hero__slider {
+        height: 250px;
+    }
+    
+    .slider-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+    }
+    
+    .slider-btn-prev {
+        left: 8px;
+    }
+    
+    .slider-btn-next {
+        right: 8px;
+    }
+    
+    .slider-dots {
+        bottom: 12px;
+        gap: 8px;
+    }
+    
+    .slider-dot {
+        width: 10px;
+        height: 10px;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .advantage-card {
+        width: 100%;
+        max-width: 400px;
+    }
+    
+    .promo-section {
+        padding: 40px 0;
+    }
+    
+    .promo-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 30px;
+    }
+    
+    .promo-card__image {
+        margin-left: 0;
+        margin-top: 30px;
+        max-width: 200px;
+    }
+    
+    .promo-card__title {
+        font-size: 1.8rem;
+    }
+    
+    .promo-card__desc {
+        font-size: 1rem;
+    }
+    
+    .promo-card__btn {
+        padding: 12px 40px;
+        font-size: 1.1rem;
+    }
+    
+    .reviews-grid {
+        grid-template-columns: 1fr;
+    }
+}

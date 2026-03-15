@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ВЕТ Кабинет - Вход / Регистрация</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/account.css">
+</head>
+<body>
+    <!-- ===== HEADER ===== -->
+    <header class="header">
+        <div class="header__container">
+            <a href="index.html" class="logo">
+                <div class="logo__image">
+                    <img src="images/logo.png" alt="ВЕТ Кабинет">
+                </div>
+                <div class="logo__text">
+                    <h1>ВЕТ Кабинет</h1>
+                    <p>Забота о здоровье питомцев</p>
+                </div>
+            </a>
+            
+            <div class="header__contacts">
+                <a href="tel:+79107763324" class="phone">8 (910) 776-33-24</a>
+                <a href="mailto:simavet@yandex.ru" class="email">simavet@yandex.ru</a>
+            </div>
+
+            <div class="header__location" id="locationBlock">
+                <div class="location__icon">📍</div>
+                <div class="location__info">
+                    <span class="location__label">Ваш город:</span>
+                    <span class="location__city" id="userCity">Москва</span>
+                </div>
+                <button class="location__change" id="changeCityBtn" title="Выбрать город">▼</button>
+            </div>
+            
+            <div class="header__actions">
+                <a href="account.html" class="login-link">Войти</a>
+                <a href="cart.html" title="Корзина">
+                    🛒
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+        </div>
+        
+        <nav class="nav">
+            <ul class="nav__menu">
+                <li class="nav__item"><a href="index.html">Главная</a></li>
+                <li class="nav__item"><a href="catalog.html">Каталог</a></li>
+                <li class="nav__item"><a href="about.html">О нас</a></li>
+                <li class="nav__item"><a href="contacts.html">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main>
+        <!-- Хлебные крошки -->
+        <div class="breadcrumbs">
+            <div class="container">
+                <ul class="breadcrumbs__list">
+                    <li class="breadcrumbs__item"><a href="index.html">Главная</a></li>
+                    <li class="breadcrumbs__item active">Вход / Регистрация</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Форма входа/регистрации -->
+        <section class="account-section">
+            <div class="container">
+                <div class="account-container">
+                    <!-- Вкладки -->
+                    <div class="account-tabs">
+                        <button class="tab-btn active" id="loginTab">Вход</button>
+                        <button class="tab-btn" id="registerTab">Регистрация</button>
+                    </div>
+                    
+                    <!-- Форма входа -->
+                    <div class="tab-content active" id="loginForm">
+                        <h2 class="form-title">Вход в аккаунт</h2>
+                        
+                        <form id="loginFormElement">
+                            <div class="form-group">
+                                <label for="loginEmail" class="form-label">Email</label>
+                                <input type="email" class="form-input" id="loginEmail" placeholder="ivan@example.com" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="loginPassword" class="form-label">Пароль</label>
+                                <input type="password" class="form-input" id="loginPassword" placeholder="********" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-checkbox">
+                                    <input type="checkbox" name="remember" id="remember">
+                                    <span class="form-checkbox__text">Запомнить меня</span>
+                                </label>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary account-btn">Войти</button>
+                            
+                            <div class="form-links">
+                                <a href="#" class="form-link">Забыли пароль?</a>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <!-- Форма регистрации -->
+                    <div class="tab-content" id="registerForm">
+                        <h2 class="form-title">Регистрация</h2>
+                        
+                        <form id="registerFormElement">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="regName" class="form-label">Имя</label>
+                                    <input type="text" class="form-input" id="regName" placeholder="Иван" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="regLastName" class="form-label">Фамилия</label>
+                                    <input type="text" class="form-input" id="regLastName" placeholder="Петров">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="regEmail" class="form-label">Email</label>
+                                <input type="email" class="form-input" id="regEmail" placeholder="ivan@example.com" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="regPhone" class="form-label">Телефон</label>
+                                <input type="tel" class="form-input" id="regPhone" placeholder="+7 (910) 776-33-24" required>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="regPassword" class="form-label">Пароль</label>
+                                    <input type="password" class="form-input" id="regPassword" placeholder="********" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="regConfirm" class="form-label">Подтверждение</label>
+                                    <input type="password" class="form-input" id="regConfirm" placeholder="********" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-checkbox">
+                                    <input type="checkbox" name="agreement" id="agreement" required>
+                                    <span class="form-checkbox__text">Я согласен с <a href="#" class="form-link">условиями обработки персональных данных</a></span>
+                                </label>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary account-btn">Зарегистрироваться</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__col">
+                <h3>ВЕТ Кабинет</h3>
+                <p>Забота о здоровье ваших питомцев с 2010 года.</p>
+                <div class="footer__social">
+                    <a href="https://vk.com/svet_vet_kabinet" title="VK">
+                        <img src="images/icons/vk.svg" alt="VK">
+                    </a>
+                    <a href="https://web.telegram.org/" title="Telegram">
+                        <img src="images/icons/telegram.svg" alt="Telegram">
+                    </a>
+                    <a href="https://ok.ru/" title="Оdnoklassniki">
+                        <img src="images/icons/odnoklassniki.svg" alt="Оdnoklassniki">
+                    </a>
+                </div>
+            </div>
+            <div class="footer__col">
+                <h3>Меню</h3>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="catalog.html">Каталог</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="footer__col">
+                <h3>Контакты</h3>
+                <ul>
+                    <li>📞 <a href="tel:+79107763324">8 (910) 776-33-24</a></li>
+                    <li>✉️ <a href="mailto:simavet@yandex.ru">simavet@yandex.ru</a></li>
+                    <li>📍 <a href="https://yandex.ru/maps/org/veterinarny_kabinet/1272098244/">Владимирская обл., г. Кольчугино, ул. Коллективная, 48</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p>© 2026 ВЕТ Кабинет. Все права защищены.</p>
+            <p>Разработчик: Ногтев Юрий Алексеевич</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // ===== ЭЛЕМЕНТЫ СТРАНИЦЫ =====
+            const loginTab = document.getElementById('loginTab');
+            const registerTab = document.getElementById('registerTab');
+            const loginForm = document.getElementById('loginForm');
+            const registerForm = document.getElementById('registerForm');
+            const loginFormElement = document.getElementById('loginFormElement');
+            const registerFormElement = document.getElementById('registerFormElement');
+            const phoneInput = document.getElementById('regPhone');
+
+            // ===== ПЕРЕКЛЮЧЕНИЕ МЕЖДУ ФОРМАМИ =====
+            if (loginTab && registerTab) {
+                loginTab.addEventListener('click', () => {
+                    loginTab.classList.add('active');
+                    registerTab.classList.remove('active');
+                    loginForm.classList.add('active');
+                    registerForm.classList.remove('active');
+                });
+                
+                registerTab.addEventListener('click', () => {
+                    registerTab.classList.add('active');
+                    loginTab.classList.remove('active');
+                    registerForm.classList.add('active');
+                    loginForm.classList.remove('active');
+                });
+            }
+
+            // ===== ОБРАБОТКА ФОРМЫ ВХОДА =====
+            if (loginFormElement) {
+                loginFormElement.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    
+                    const email = document.getElementById('loginEmail').value.trim();
+                    const password = document.getElementById('loginPassword').value.trim();
+                    
+                    if (!email || !password) {
+                        alert('Заполните все поля');
+                        return;
+                    }
+                    
+                    alert('Вход выполнен успешно!');
+                    
+                    localStorage.setItem('vetUserLoggedIn', 'true');
+                    localStorage.setItem('vetUserEmail', email);
+                    
+                    window.location.href = 'index.html';
+                });
+            }
+
+            // ===== ОБРАБОТКА ФОРМЫ РЕГИСТРАЦИИ =====
+            if (registerFormElement) {
+                registerFormElement.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    
+                    const name = document.getElementById('regName').value.trim();
+                    const email = document.getElementById('regEmail').value.trim();
+                    const phone = document.getElementById('regPhone').value.trim();
+                    const password = document.getElementById('regPassword').value.trim();
+                    const confirm = document.getElementById('regConfirm').value.trim();
+                    const agreement = document.getElementById('agreement').checked;
+                    
+                    if (!name || !email || !phone || !password || !confirm) {
+                        alert('Заполните все обязательные поля');
+                        return;
+                    }
+                    
+                    if (password !== confirm) {
+                        alert('Пароли не совпадают');
+                        return;
+                    }
+                    
+                    if (!agreement) {
+                        alert('Необходимо согласие на обработку персональных данных');
+                        return;
+                    }
+                    
+                    alert('Регистрация выполнена успешно!');
+                    
+                    localStorage.setItem('vetUserLoggedIn', 'true');
+                    localStorage.setItem('vetUserName', name);
+                    localStorage.setItem('vetUserEmail', email);
+                    
+                    window.location.href = 'index.html';
+                });
+            }
+
+            // ===== МАСКА ДЛЯ ТЕЛЕФОНА =====
+            if (phoneInput) {
+                phoneInput.addEventListener('input', (e) => {
+                    let value = e.target.value.replace(/\D/g, '');
+                    
+                    if (value.length > 0) {
+                        if (value.length === 1) {
+                            value = '+7 (';
+                        } else if (value.length <= 4) {
+                            value = '+7 (' + value.slice(1);
+                        } else if (value.length <= 7) {
+                            value = '+7 (' + value.slice(1, 4) + ') ' + value.slice(4);
+                        } else if (value.length <= 9) {
+                            value = '+7 (' + value.slice(1, 4) + ') ' + value.slice(4, 7) + '-' + value.slice(7);
+                        } else {
+                            value = '+7 (' + value.slice(1, 4) + ') ' + value.slice(4, 7) + '-' + value.slice(7, 9) + '-' + value.slice(9, 11);
+                        }
+                        
+                        e.target.value = value;
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

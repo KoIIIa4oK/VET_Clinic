@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ВЕТ Кабинет - Контакты</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/contacts.css">
+    
+    <!-- Подключаем API Яндекс.Карт -->
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=a62a5fef-5009-4fb4-a22e-03e97fba7550&lang=ru_RU" type="text/javascript"></script>
+</head>
+<body>
+    <!-- ===== HEADER ===== -->
+    <header class="header">
+        <div class="header__container">
+            <a href="index.html" class="logo">
+                <div class="logo__image">
+                    <img src="images/logo.png" alt="ВЕТ Кабинет">
+                </div>
+                <div class="logo__text">
+                    <h1>ВЕТ Кабинет</h1>
+                    <p>Забота о здоровье питомцев</p>
+                </div>
+            </a>
+            
+            <div class="header__contacts">
+                <a href="tel:+79107763324" class="phone">8 (910) 776-33-24</a>
+                <a href="mailto:simavet@yandex.ru" class="email">simavet@yandex.ru</a>
+            </div>
+
+            <div class="header__location" id="locationBlock">
+                <div class="location__icon">📍</div>
+                <div class="location__info">
+                    <span class="location__label">Ваш город:</span>
+                    <span class="location__city" id="userCity">Москва</span>
+                </div>
+                <button class="location__change" id="changeCityBtn" title="Выбрать город">▼</button>
+            </div>
+            
+            <div class="header__actions">
+                <a href="account.html" class="login-link">Войти</a>
+                <a href="cart.html" title="Корзина">
+                    🛒
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+        </div>
+        
+        <nav class="nav">
+            <ul class="nav__menu">
+                <li class="nav__item"><a href="index.html">Главная</a></li>
+                <li class="nav__item"><a href="catalog.html">Каталог</a></li>
+                <li class="nav__item"><a href="about.html">О нас</a></li>
+                <li class="nav__item"><a href="contacts.html" class="active">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main>
+        <!-- Хлебные крошки -->
+        <div class="breadcrumbs">
+            <div class="container">
+                <ul class="breadcrumbs__list">
+                    <li class="breadcrumbs__item"><a href="index.html">Главная</a></li>
+                    <li class="breadcrumbs__item active">Контакты</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Заголовок страницы -->
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-header__title">Контакты</h1>
+                <p class="page-header__subtitle">Мы всегда рады помочь вам и вашим питомцам</p>
+            </div>
+        </section>
+
+        <!-- Контактная информация -->
+        <section class="contacts-info">
+            <div class="container">
+                <div class="contacts-grid">
+                    <div class="contact-card">
+                        <div class="contact-card__icon">📞</div>
+                        <h3 class="contact-card__title">Телефон</h3>
+                        <a href="tel:+79107763324" class="contact-card__value">8 (910) 776-33-24</a>
+                        <p class="contact-card__desc">Ежедневно с 9:00 до 21:00</p>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-card__icon">✉️</div>
+                        <h3 class="contact-card__title">Email</h3>
+                        <a href="mailto:simavet@yandex.ru" class="contact-card__value">simavet@yandex.ru</a>
+                        <p class="contact-card__desc">Ответим в течение 2 часов</p>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-card__icon">🕒</div>
+                        <h3 class="contact-card__title">Режим работы</h3>
+                        <p class="contact-card__value">Пн-Пт: 9:00 - 20:00</p>
+                        <p class="contact-card__value">Сб-Вс: 10:00 - 18:00</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Карта -->
+        <section class="contacts-map">
+            <div class="container">
+                <h2 class="section-title">Как нас найти</h2>
+                <div class="map-wrapper">
+                    <div id="yandex-map" class="map-container"></div>
+                </div>
+                <p class="map-address">
+                    <a href="https://yandex.ru/maps/org/veterinarny_kabinet/1272098244/?ll=39.366484%2C56.295590&z=16" target="_blank" rel="noopener noreferrer">
+                        📍 Владимирская обл., г. Кольчугино, ул. Коллективная, 48
+                    </a>
+                </p>
+            </div>
+        </section>
+
+        <!-- Форма обратной связи и обращения -->
+        <section class="feedback-section">
+            <div class="container">
+                <h2 class="section-title">Напишите нам</h2>
+                <div class="feedback-layout">
+                    <!-- Левая колонка - форма -->
+                    <div class="feedback-form-wrapper">
+                        <form class="feedback-form" id="feedbackForm" novalidate>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name" class="form-label">Ваше имя *</label>
+                                    <input type="text" class="form-input" id="name" name="name" placeholder="Иван Петров">
+                                    <div class="form-error" id="nameError"></div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="email" class="form-label">Email *</label>
+                                    <input type="email" class="form-input" id="email" name="email" placeholder="ivan@example.com">
+                                    <div class="form-error" id="emailError"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="phone" class="form-label">Телефон</label>
+                                    <input type="tel" class="form-input" id="phone" name="phone" placeholder="+7 (910) 776-33-24">
+                                    <div class="form-error" id="phoneError"></div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="subject" class="form-label">Тема обращения</label>
+                                    <select class="form-input filter-select" id="subject" name="subject">
+                                        <option value="question">Вопрос о товаре</option>
+                                        <option value="order">Проблема с заказом</option>
+                                        <option value="cooperation">Сотрудничество</option>
+                                        <option value="other">Другое</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group form-group--full">
+                                <label for="message" class="form-label">Сообщение *</label>
+                                <textarea class="form-input form-textarea" id="message" name="message" rows="5" placeholder="Напишите ваш вопрос..."></textarea>
+                                <div class="form-error" id="messageError"></div>
+                            </div>
+                            
+                            <div class="form-group form-group--full">
+                                <label class="form-checkbox">
+                                    <input type="checkbox" name="agreement" id="agreement">
+                                    <span class="form-checkbox__text">Я согласен на обработку персональных данных *</span>
+                                </label>
+                                <div class="form-error" id="agreementError"></div>
+                            </div>
+                            
+                            <div class="form-submit">
+                                <button type="submit" class="btn btn-primary form-submit__btn">Отправить сообщение</button>
+                            </div>
+                            
+                            <div class="form-success" id="formSuccess">
+                                Спасибо! Ваше сообщение отправлено. Мы свяжемся с вами в ближайшее время.
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <!-- Правая колонка - мои обращения -->
+                    <div class="appeals-wrapper">
+                        <div class="appeals-header">
+                            <h3 class="appeals-title">Мои обращения</h3>
+                            <button class="btn btn-outline appeals-clear-btn" id="clearAppealsBtn">Очистить</button>
+                        </div>
+                        
+                        <div class="appeals-list" id="appealsList">
+                            <!-- Сюда будут добавляться обращения через JS -->
+                        </div>
+                        
+                        <div class="appeals-empty" id="appealsEmpty">
+                            <p>У вас пока нет обращений</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__col">
+                <h3>ВЕТ Кабинет</h3>
+                <p>Забота о здоровье ваших питомцев с 2010 года.</p>
+                <div class="footer__social">
+                    <a href="https://vk.com/svet_vet_kabinet" title="VK">
+                        <img src="images/icons/vk.svg" alt="VK">
+                    </a>
+                    <a href="https://web.telegram.org/" title="Telegram">
+                        <img src="images/icons/telegram.svg" alt="Telegram">
+                    </a>
+                    <a href="https://ok.ru/" title="Оdnoklassniki">
+                        <img src="images/icons/odnoklassniki.svg" alt="Оdnoklassniki">
+                    </a>
+                </div>
+            </div>
+            <div class="footer__col">
+                <h3>Меню</h3>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="catalog.html">Каталог</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="footer__col">
+                <h3>Контакты</h3>
+                <ul>
+                    <li>📞 <a href="tel:+79107763324">8 (910) 776-33-24</a></li>
+                    <li>✉️ <a href="mailto:simavet@yandex.ru">simavet@yandex.ru</a></li>
+                    <li>📍 <a href="https://yandex.ru/maps/org/veterinarny_kabinet/1272098244/">Владимирская обл., г. Кольчугино, ул. Коллективная, 48</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p>© 2026 ВЕТ Кабинет. Все права защищены.</p>
+            <p>Разработчик: Ногтев Юрий Алексеевич</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // ===== ИНИЦИАЛИЗАЦИЯ КАРТЫ =====
+        ymaps.ready(function () {
+            const organizationId = '1272098244';
+            const map = new ymaps.Map("yandex-map", {
+                center: [56.295590, 39.366484],
+                zoom: 16,
+                controls: ['zoomControl', 'fullscreenControl']
+            });
+
+            ymaps.findOrganization(organizationId).then(
+                function (orgGeoObject) {
+                    map.geoObjects.add(orgGeoObject);
+                    map.setCenter(orgGeoObject.geometry.getCoordinates(), 17);
+                    orgGeoObject.balloon.open();
+                },
+                function (err) {
+                    console.error('Организация не найдена:', err);
+                    const placemark = new ymaps.Placemark([56.295590, 39.366484], {
+                        hintContent: 'ВЕТ Кабинет',
+                        balloonContent: 'Ветеринарный магазин<br>ул. Коллективная, 48'
+                    }, {
+                        preset: 'islands#greenDotIcon',
+                        iconColor: '#4CAF50'
+                    });
+                    map.geoObjects.add(placemark);
+                }
+            );
+        });
+
+        // ===== РАБОТА С ОБРАЩЕНИЯМИ =====
+        (function() {
+            const STORAGE_KEY = 'vetAppeals';
+
+            // Загрузка обращений
+            function loadAppeals() {
+                const appeals = localStorage.getItem(STORAGE_KEY);
+                return appeals ? JSON.parse(appeals) : [];
+            }
+
+            // Сохранение обращений
+            function saveAppeals(appeals) {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(appeals));
+            }
+
+            // Добавление обращения
+            function addAppeal(appealData) {
+                const appeals = loadAppeals();
+                const newAppeal = {
+                    id: Date.now(),
+                    date: new Date().toLocaleString('ru-RU'),
+                    name: appealData.name,
+                    email: appealData.email,
+                    phone: appealData.phone || 'Не указан',
+                    subject: appealData.subject,
+                    message: appealData.message,
+                    status: 'Новое',
+                    answer: null
+                };
+                
+                appeals.unshift(newAppeal);
+                saveAppeals(appeals);
+                renderAppeals();
+                return newAppeal;
+            }
+
+            // Удаление обращения
+            window.deleteAppeal = function(id) {
+                if (confirm('Вы уверены, что хотите удалить это обращение? Это действие нельзя отменить.')) {
+                    const appeals = loadAppeals();
+                    saveAppeals(appeals.filter(a => a.id !== id));
+                    renderAppeals();
+                    showDeleteNotification();
+                }
+            };
+
+            // Уведомление об удалении
+            function showDeleteNotification() {
+                const notification = document.createElement('div');
+                notification.className = 'delete-notification';
+                notification.textContent = 'Обращение удалено';
+                document.body.appendChild(notification);
+                
+                setTimeout(() => notification.classList.add('show'), 10);
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                    setTimeout(() => notification.remove(), 300);
+                }, 2000);
+            }
+
+            // Очистка всех обращений
+            function clearAllAppeals() {
+                if (confirm('Вы уверены, что хотите удалить ВСЮ историю обращений? Это действие нельзя отменить.')) {
+                    localStorage.removeItem(STORAGE_KEY);
+                    renderAppeals();
+                    showDeleteNotification();
+                }
+            }
+
+            // HTML для статуса
+            function getStatusHtml(status) {
+                const colors = {
+                    'Новое': '#FF9800',
+                    'В обработке': '#2196F3',
+                    'Отвечено': '#4CAF50',
+                    'Закрыто': '#9E9E9E'
+                };
+                return `<span style="color: ${colors[status]}; font-weight: 500;">${status}</span>`;
+            }
+
+            // Отрисовка обращений
+            function renderAppeals() {
+                const appeals = loadAppeals();
+                const listEl = document.getElementById('appealsList');
+                const emptyEl = document.getElementById('appealsEmpty');
+                
+                if (!listEl || !emptyEl) return;
+                
+                if (appeals.length === 0) {
+                    listEl.style.display = 'none';
+                    emptyEl.style.display = 'block';
+                    return;
+                }
+                
+                listEl.style.display = 'block';
+                emptyEl.style.display = 'none';
+                
+                listEl.innerHTML = appeals.map(appeal => `
+                    <div class="appeal-card" data-id="${appeal.id}">
+                        <div class="appeal-card__header">
+                            <div class="appeal-card__info">
+                                <span class="appeal-card__date">${appeal.date}</span>
+                                <span class="appeal-card__subject">${appeal.subject}</span>
+                                ${getStatusHtml(appeal.status)}
+                            </div>
+                            <button class="appeal-card__delete" onclick="deleteAppeal(${appeal.id})" title="Удалить">✕</button>
+                        </div>
+                        <div class="appeal-card__body">
+                            <div class="appeal-card__contacts">
+                                <span>👤 ${appeal.name}</span>
+                                <span>📧 ${appeal.email}</span>
+                                ${appeal.phone !== 'Не указан' ? `<span>📞 ${appeal.phone}</span>` : ''}
+                            </div>
+                            <div class="appeal-card__message">
+                                <strong>Сообщение:</strong>
+                                <p>${appeal.message}</p>
+                            </div>
+                            ${appeal.answer ? `
+                                <div class="appeal-card__answer">
+                                    <strong>Ответ:</strong>
+                                    <p>${appeal.answer}</p>
+                                </div>
+                            ` : ''}
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            // ===== ФОРМА ОБРАТНОЙ СВЯЗИ =====
+            const feedbackForm = document.getElementById('feedbackForm');
+            if (feedbackForm) {
+                feedbackForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Сброс ошибок
+                    document.querySelectorAll('.form-error').forEach(el => el.textContent = '');
+                    document.querySelectorAll('.form-input').forEach(el => el.classList.remove('error'));
+                    
+                    let isValid = true;
+                    
+                    // Валидация имени
+                    const name = document.getElementById('name');
+                    if (!name.value.trim()) {
+                        showError('nameError', 'Введите имя');
+                        name.classList.add('error');
+                        isValid = false;
+                    } else if (name.value.trim().length < 2) {
+                        showError('nameError', 'Имя должно содержать минимум 2 символа');
+                        name.classList.add('error');
+                        isValid = false;
+                    }
+                    
+                    // Валидация email
+                    const email = document.getElementById('email');
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!email.value.trim()) {
+                        showError('emailError', 'Введите email');
+                        email.classList.add('error');
+                        isValid = false;
+                    } else if (!emailRegex.test(email.value.trim())) {
+                        showError('emailError', 'Введите корректный email');
+                        email.classList.add('error');
+                        isValid = false;
+                    }
+                    
+                    // Валидация телефона
+                    const phone = document.getElementById('phone');
+                    if (phone.value.trim()) {
+                        const phoneDigits = phone.value.replace(/\D/g, '');
+                        if (phoneDigits.length < 10 || phoneDigits.length > 11) {
+                            showError('phoneError', 'Введите корректный номер телефона');
+                            phone.classList.add('error');
+                            isValid = false;
+                        }
+                    }
+                    
+                    // Валидация сообщения
+                    const message = document.getElementById('message');
+                    if (!message.value.trim()) {
+                        showError('messageError', 'Введите сообщение');
+                        message.classList.add('error');
+                        isValid = false;
+                    } else if (message.value.trim().length < 10) {
+                        showError('messageError', 'Сообщение должно содержать минимум 10 символов');
+                        message.classList.add('error');
+                        isValid = false;
+                    }
+                    
+                    // Валидация согласия
+                    const agreement = document.getElementById('agreement');
+                    if (!agreement.checked) {
+                        showError('agreementError', 'Необходимо согласие на обработку данных');
+                        isValid = false;
+                    }
+                    
+                    if (isValid) {
+                        const subjectSelect = document.getElementById('subject');
+                        const subjectText = subjectSelect.options[subjectSelect.selectedIndex].text;
+                        
+                        addAppeal({
+                            name: name.value.trim(),
+                            email: email.value.trim(),
+                            phone: phone.value.trim(),
+                            subject: subjectText,
+                            message: message.value.trim()
+                        });
+                        
+                        document.getElementById('formSuccess').style.display = 'block';
+                        feedbackForm.reset();
+                        
+                        setTimeout(() => {
+                            document.getElementById('formSuccess').style.display = 'none';
+                        }, 5000);
+                    }
+                });
+            }
+
+            // Вспомогательная функция для показа ошибок
+            function showError(elementId, message) {
+                const errorEl = document.getElementById(elementId);
+                if (errorEl) errorEl.textContent = message;
+            }
+
+            // ===== МАСКА ДЛЯ ТЕЛЕФОНА =====
+            const phoneInput = document.getElementById('phone');
+            if (phoneInput) {
+                phoneInput.addEventListener('input', function(e) {
+                    let value = e.target.value.replace(/\D/g, '');
+                    if (value.length > 0) {
+                        if (value.length <= 1) {
+                            value = '+7 (' + value;
+                        } else if (value.length <= 4) {
+                            value = '+7 (' + value.slice(1, 4);
+                        } else if (value.length <= 7) {
+                            value = '+7 (' + value.slice(1, 4) + ') ' + value.slice(4, 7);
+                        } else if (value.length <= 9) {
+                            value = '+7 (' + value.slice(1, 4) + ') ' + value.slice(4, 7) + '-' + value.slice(7, 9);
+                        } else {
+                            value = '+7 (' + value.slice(1, 4) + ') ' + value.slice(4, 7) + '-' + value.slice(7, 9) + '-' + value.slice(9, 11);
+                        }
+                        e.target.value = value;
+                    }
+                });
+            }
+
+            // ===== КНОПКА ОЧИСТКИ =====
+            document.getElementById('clearAppealsBtn')?.addEventListener('click', clearAllAppeals);
+
+            // ===== ПЕРВОНАЧАЛЬНАЯ ОТРИСОВКА =====
+            renderAppeals();
+        })();
+    </script>
+</body>
+</html>

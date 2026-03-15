@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ВЕТ Кабинет - Товар</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/product.css">
+</head>
+<body>
+    <!-- ===== HEADER ===== -->
+    <header class="header">
+        <div class="header__container">
+            <a href="index.html" class="logo">
+                <div class="logo__image">
+                    <img src="images/logo.png" alt="ВЕТ Кабинет">
+                </div>
+                <div class="logo__text">
+                    <h1>ВЕТ Кабинет</h1>
+                    <p>Забота о здоровье питомцев</p>
+                </div>
+            </a>
+            
+            <div class="header__contacts">
+                <a href="tel:+79107763324" class="phone">8 (910) 776-33-24</a>
+                <a href="mailto:simavet@yandex.ru" class="email">simavet@yandex.ru</a>
+            </div>
+
+            <div class="header__location" id="locationBlock">
+                <div class="location__icon">📍</div>
+                <div class="location__info">
+                    <span class="location__label">Ваш город:</span>
+                    <span class="location__city" id="userCity">Москва</span>
+                </div>
+                <button class="location__change" id="changeCityBtn" title="Выбрать город">▼</button>
+            </div>
+            
+            <div class="header__actions">
+                <a href="account.html" class="login-link">Войти</a>
+                <a href="cart.html" title="Корзина">
+                    🛒
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+        </div>
+        
+        <nav class="nav">
+            <ul class="nav__menu">
+                <li class="nav__item"><a href="index.html">Главная</a></li>
+                <li class="nav__item"><a href="catalog.html">Каталог</a></li>
+                <li class="nav__item"><a href="about.html">О нас</a></li>
+                <li class="nav__item"><a href="contacts.html">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main>
+        <!-- Хлебные крошки -->
+        <div class="breadcrumbs">
+            <div class="container">
+                <ul class="breadcrumbs__list">
+                    <li class="breadcrumbs__item"><a href="index.html">Главная</a></li>
+                    <li class="breadcrumbs__item"><a href="catalog.html">Каталог</a></li>
+                    <li class="breadcrumbs__item" id="breadcrumbCategory"><a href="category.html?cat=lekarstva">Лекарства</a></li>
+                    <li class="breadcrumbs__item active" id="breadcrumbProduct">Амоксициллин 15%</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Карточка товара -->
+        <section class="product-page">
+            <div class="container">
+                <div class="product-grid">
+                    <!-- Левая колонка - изображение -->
+                    <div class="product-gallery">
+                        <div class="product-main-image">
+                            <img src="images/products/amoxicillin.jpg" alt="Амоксициллин 15%" id="mainProductImage">
+                        </div>
+                        <div class="product-thumbnails" id="productThumbnails">
+                            <!-- Миниатюры будут добавлены через JS -->
+                        </div>
+                    </div>
+                    
+                    <!-- Правая колонка - информация -->
+                    <div class="product-info">
+                        <h1 class="product-title" id="productTitle">Амоксициллин 15%</h1>
+                        
+                        <div class="product-rating">
+                            <div class="rating-stars" id="ratingStars" data-rating="5">
+                                <span class="star" data-value="1">★</span>
+                                <span class="star" data-value="2">★</span>
+                                <span class="star" data-value="3">★</span>
+                                <span class="star" data-value="4">★</span>
+                                <span class="star" data-value="5">★</span>
+                            </div>
+                            <span class="rating-value" id="ratingValue">5.0</span>
+                            <span class="rating-count" id="ratingCount">(12 отзывов)</span>
+                        </div>
+                        
+                        <div class="product-availability">
+                            <span class="availability-badge in-stock" id="availabilityBadge">В наличии</span>
+                            <span class="product-sku" id="productSku">Артикул: 12345</span>
+                        </div>
+                        
+                        <div class="product-price">
+                            <span class="current-price" id="currentPrice">450 ₽</span>
+                            <span class="old-price" id="oldPrice">550 ₽</span>
+                            <span class="price-discount" id="priceDiscount">-18%</span>
+                        </div>
+                        
+                        <div class="product-description">
+                            <p id="productDescription">Антибиотик широкого спектра действия для лечения бактериальных инфекций у собак и кошек. Препарат эффективен против грамположительных и грамотрицательных микроорганизмов.</p>
+                        </div>
+                        
+                        <!-- Характеристики -->
+                        <div class="product-specs">
+                            <h3 class="specs-title">Характеристики</h3>
+                            <ul class="specs-list" id="specsList">
+                                <!-- Заполняется через JS -->
+                            </ul>
+                        </div>
+                        
+                        <!-- Количество и кнопки -->
+                        <div class="product-actions">
+                            <div class="quantity-selector">
+                                <button class="quantity-btn" id="decreaseQuantity">−</button>
+                                <input type="number" class="quantity-input" id="quantity" value="1" min="1" max="99">
+                                <button class="quantity-btn" id="increaseQuantity">+</button>
+                            </div>
+                            
+                            <button class="btn btn-primary add-to-cart-btn" id="addToCartBtn">Добавить в корзину</button>
+                        </div>
+                        
+                        <div class="product-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">Категория:</span>
+                                <a href="category.html?cat=lekarstva" class="meta-link" id="categoryLink">Лекарства</a>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Подкатегория:</span>
+                                <a href="category.html?cat=lekarstva&sub=antibiotics" class="meta-link" id="subCategoryLink">Антибиотики</a>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Поделиться:</span>
+                                <div class="share-links">
+                                    <a href="https://vk.com/" class="share-link" title="VK"><img src="images/icons/vk.png" alt="VK"></a>
+                                    <a href="https://web.telegram.org/" class="share-link" title="TG"><img src="images/icons/telegram.png" alt="Telegram"></a>
+                                    <a href="https://ok.ru/" class="share-link" title="ОD"><img src="images/icons/odnoklassniki.png" alt="Оdnoklassniki"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Похожие товары -->
+        <section class="related-products">
+            <div class="container">
+                <h2 class="section-title">Похожие товары</h2>
+                <div class="related-grid" id="relatedProductsGrid">
+                    <!-- Товары будут добавлены через JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Отзывы о товаре -->
+        <section class="product-reviews">
+            <div class="container">
+                <h2 class="section-title">Отзывы покупателей</h2>
+                
+                <div class="reviews-summary">
+                    <div class="summary-rating">
+                        <span class="summary-value" id="summaryRating">5.0</span>
+                        <div class="rating-stars" id="summaryStars" data-rating="5">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <span class="summary-count" id="summaryCount">12 отзывов</span>
+                    </div>
+                    
+                    <button class="btn btn-outline write-review-btn">Написать отзыв</button>
+                </div>
+                
+                <div class="reviews-list" id="reviewsList">
+                    <!-- Отзывы будут добавлены через JS -->
+                </div>
+                
+                <div class="reviews-more">
+                    <button class="btn btn-outline">Показать еще отзывы</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__col">
+                <h3>ВЕТ Кабинет</h3>
+                <p>Забота о здоровье ваших питомцев с 2010 года.</p>
+                <div class="footer__social">
+                    <a href="https://vk.com/svet_vet_kabinet" title="VK">
+                        <img src="images/icons/vk.svg" alt="VK">
+                    </a>
+                    <a href="https://web.telegram.org/" title="Telegram">
+                        <img src="images/icons/telegram.svg" alt="Telegram">
+                    </a>
+                    <a href="https://ok.ru/" title="Оdnoklassniki">
+                        <img src="images/icons/odnoklassniki.svg" alt="Оdnoklassniki">
+                    </a>
+                </div>
+            </div>
+            <div class="footer__col">
+                <h3>Меню</h3>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="catalog.html">Каталог</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="footer__col">
+                <h3>Контакты</h3>
+                <ul>
+                    <li>📞 <a href="tel:+79107763324">8 (910) 776-33-24</a></li>
+                    <li>✉️ <a href="mailto:simavet@yandex.ru">simavet@yandex.ru</a></li>
+                    <li>📍 <a href="https://yandex.ru/maps/org/veterinarny_kabinet/1272098244/">Владимирская обл., г. Кольчугино, ул. Коллективная, 48</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p>© 2026 ВЕТ Кабинет. Все права защищены.</p>
+            <p>Разработчик: Ногтев Юрий Алексеевич</p>
+        </div>
+    </footer>
+
+    <!-- Шаблон похожего товара -->
+    <template id="relatedProductTemplate">
+        <div class="related-card">
+            <a href="" class="related-card__image">
+                <img src="" alt="" loading="lazy">
+            </a>
+            <div class="related-card__content">
+                <a href="" class="related-card__title"></a>
+                <div class="related-card__price"></div>
+                <button class="related-card__btn">Купить</button>
+            </div>
+        </div>
+    </template>
+
+    <!-- Шаблон отзыва -->
+    <template id="reviewTemplate">
+        <div class="review-item">
+            <div class="review-header">
+                <div class="review-author">
+                    <div class="review-avatar"></div>
+                    <div class="review-author-info">
+                        <div class="review-name"></div>
+                        <div class="review-date"></div>
+                    </div>
+                </div>
+                <div class="review-rating">
+                    <div class="rating-stars"></div>
+                    <span class="rating-value"></span>
+                </div>
+            </div>
+            <div class="review-body"></div>
+        </div>
+    </template>
+
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // ===== ПОЛУЧЕНИЕ ID ТОВАРА =====
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('id') || '1';
+            console.log('Загружаем товар с ID:', productId);
+
+            // ===== БАЗА ДАННЫХ ТОВАРОВ =====
+            const products = {
+                1: {
+                    name: 'Амоксициллин 15%',
+                    price: '450',
+                    oldPrice: '550',
+                    sku: '12345',
+                    category: 'lekarstva',
+                    categoryName: 'Лекарства',
+                    subCategory: 'antibiotics',
+                    subCategoryName: 'Антибиотики',
+                    image: 'images/products/amoxicillin.jpg',
+                    images: [
+                        'images/products/amoxicillin.jpg',
+                        'images/products/amoxicillin-2.jpg',
+                        'images/products/amoxicillin-3.jpg'
+                    ],
+                    description: 'Антибиотик широкого спектра действия для лечения бактериальных инфекций у собак и кошек.',
+                    inStock: true,
+                    specs: {
+                        'Действующее вещество': 'Амоксициллин (15%)',
+                        'Форма выпуска': 'Суспензия для инъекций, 10 мл',
+                        'Производитель': 'ООО "Ветбиохим", Россия',
+                        'Показания': 'Инфекции ЖКТ, дыхательных путей, мочеполовой системы',
+                        'Способ применения': 'Подкожно или внутримышечно'
+                    },
+                    reviews: [
+                        { author: 'Анна Н.', avatar: 'АН', date: '15 марта 2026', rating: 5, text: 'Отличный препарат! Помог нашей собаке быстро вылечиться. Кололи по инструкции 5 дней, результат отличный.' },
+                        { author: 'Дмитрий К.', avatar: 'ДК', date: '2 марта 2026', rating: 5, text: 'Хороший препарат, всегда держу в аптечке. Котам подходит, собакам тоже. Цена приемлемая.' },
+                        { author: 'Елена В.', avatar: 'ЕВ', date: '20 февраля 2026', rating: 5, text: 'Ветеринар прописал котенку, очень помог. Доставили быстро, упаковка целая, все отлично.' },
+                        { author: 'Галина А.', avatar: 'ГA', date: '20 февраля 2025', rating: 5, text: 'Прописали собачке, очень помогло, Все отлично!' }
+                    ]
+                },
+                2: {
+                    name: 'Байтрил 5%',
+                    price: '890',
+                    oldPrice: null,
+                    sku: '12346',
+                    category: 'lekarstva',
+                    categoryName: 'Лекарства',
+                    subCategory: 'antibiotics',
+                    subCategoryName: 'Антибиотики',
+                    image: 'images/products/baytril.jpg',
+                    images: [
+                        'images/products/baytril.jpg',
+                        'images/products/baytril-2.jpg',
+                        'images/products/baytril-3.jpg'
+                    ],
+                    description: 'Антибактериальный препарат из группы фторхинолонов для лечения инфекций.',
+                    inStock: true,
+                    specs: {
+                        'Действующее вещество': 'Энрофлоксацин (5%)',
+                        'Форма выпуска': 'Раствор для инъекций, 100 мл',
+                        'Производитель': 'Bayer, Германия',
+                        'Показания': 'Инфекции ЖКТ, дыхательных путей',
+                        'Способ применения': 'Подкожно'
+                    },
+                    reviews: [
+                        { author: 'Игорь П.', avatar: 'ИП', date: '10 марта 2026', rating: 5, text: 'Отличный антибиотик, помогает быстро. Кололи собаке при пневмонии.' },
+                        { author: 'Светлана М.', avatar: 'СМ', date: '5 марта 2026', rating: 4, text: 'Хороший препарат, но цена кусается.' }
+                    ]
+                },
+                3: {
+                    name: 'Мелоксидил суспензия',
+                    price: '380',
+                    oldPrice: '420',
+                    sku: '12347',
+                    category: 'lekarstva',
+                    categoryName: 'Лекарства',
+                    subCategory: 'painkillers',
+                    subCategoryName: 'Обезболивающие',
+                    image: 'images/products/meloxidil.jpg',
+                    images: [
+                        'images/products/meloxidil.jpg',
+                        'images/products/meloxidil-2.jpg',
+                        'images/products/meloxidil-3.jpg'
+                    ],
+                    description: 'Нестероидное противовоспалительное средство для снятия боли и воспаления.',
+                    inStock: true,
+                    specs: {
+                        'Действующее вещество': 'Мелоксидил',
+                        'Форма выпуска': 'Суспензия для приема внутрь 1.5 мг/мл, 10 мл',
+                        'Производитель': 'ООО "Апиценна", Россия',
+                        'Показания': 'Боли, воспаления, артриты',
+                        'Способ применения': 'Внутрь с кормом'
+                    },
+                    reviews: [
+                        { author: 'Ольга К.', avatar: 'ОК', date: '12 марта 2026', rating: 5, text: 'Хорошо снимает боль у собаки при артрите.' }
+                    ]
+                },
+                4: {
+                    name: 'Празител для собак',
+                    price: '290',
+                    oldPrice: null,
+                    sku: '12348',
+                    category: 'lekarstva',
+                    categoryName: 'Лекарства',
+                    subCategory: 'antiparasitic',
+                    subCategoryName: 'Противопаразитарные',
+                    image: 'images/products/parazitel.jpg',
+                    images: [
+                        'images/products/parazitel.jpg',
+                        'images/products/parazitel-2.jpg',
+                        'images/products/parazitel-3.jpg'
+                    ],
+                    description: 'Противогельминтный препарат широкого спектра действия для собак.',
+                    inStock: true,
+                    specs: {
+                        'Действующее вещество': 'Празиквантел, пирантел',
+                        'Форма выпуска': 'Таблетки, 10 шт',
+                        'Производитель': 'ООО "Апиценна", Россия',
+                        'Показания': 'Глистные инвазии',
+                        'Способ применения': 'Однократно с кормом'
+                    },
+                    reviews: [
+                        { author: 'Алексей В.', avatar: 'АВ', date: '8 марта 2026', rating: 5, text: 'Хорошее средство от глистов, даем собаке раз в полгода.' },
+                        { author: 'Татьяна С.', avatar: 'ТС', date: '1 марта 2026', rating: 4, text: 'Нормальные таблетки, главное давать строго по весу.' }
+                    ]
+                },
+                5: {
+                    name: 'Гамавит',
+                    price: '320',
+                    oldPrice: null,
+                    sku: '12349',
+                    category: 'vitaminy',
+                    categoryName: 'Витамины',
+                    subCategory: 'immunity',
+                    subCategoryName: 'Иммунитет',
+                    image: 'images/products/gumavit.jpg',
+                    images: [
+                        'images/products/gumavit.jpg',
+                        'images/products/gumavit-2.jpg',
+                        'images/products/gumavit-3.jpg'
+                    ],
+                    description: 'Иммуномодулятор и витаминный комплекс для животных.',
+                    inStock: true,
+                    specs: {
+                        'Действующее вещество': 'Комплекс витаминов',
+                        'Форма выпуска': 'Раствор для инъекций, 10 мл',
+                        'Производитель': 'ООО "Микро-плюс", Россия',
+                        'Показания': 'Иммунодефициты, стрессы',
+                        'Способ применения': 'Подкожно или внутримышечно'
+                    },
+                    reviews: [
+                        { author: 'Наталья Р.', avatar: 'НР', date: '15 февраля 2026', rating: 5, text: 'Отличное средство для поддержки иммунитета. После болезни кошка быстро встала на ноги.' }
+                    ]
+                },
+                6: {
+                    name: 'Витамины для шерсти кошек',
+                    price: '550',
+                    oldPrice: '600',
+                    sku: '12350',
+                    category: 'vitaminy',
+                    categoryName: 'Витамины',
+                    subCategory: 'fur',
+                    subCategoryName: 'Для шерсти',
+                    image: 'images/products/fur-vitamins.jpg',
+                    images: [
+                        'images/products/fur-vitamins.jpg',
+                        'images/products/fur-vitamins-2.jpg',
+                        'images/products/fur-vitamins-3.jpg'
+                    ],
+                    description: 'Комплекс витаминов для улучшения качества шерсти и кожи у кошек.',
+                    inStock: true,
+                    specs: {
+                        'Действующее вещество': 'Биотин, Омега-3, Омега-6',
+                        'Форма выпуска': 'Таблетки, 60 шт',
+                        'Производитель': 'ООО "Ветпром", Россия',
+                        'Показания': 'Улучшение шерсти, профилактика дерматитов',
+                        'Способ применения': 'По 1 таблетке в день'
+                    },
+                    reviews: [
+                        { author: 'Мария Л.', avatar: 'МЛ', date: '20 февраля 2026', rating: 5, text: 'Шерсть у кошки стала блестящей и мягкой. Очень довольна результатом.' },
+                        { author: 'Екатерина Д.', avatar: 'ЕД', date: '10 февраля 2026', rating: 4, text: 'Хорошие витамины, но пить долго, эффект не сразу.' }
+                    ]
+                },
+                7: {
+                    name: 'Royal Canin Gastro Intestinal',
+                    price: '1250',
+                    oldPrice: '1400',
+                    sku: '12351',
+                    category: 'korma',
+                    categoryName: 'Корма',
+                    subCategory: 'dogs',
+                    subCategoryName: 'Для собак',
+                    image: 'images/products/royal-canin.jpg',
+                    images: [
+                        'images/products/royal-canin.jpg',
+                        'images/products/royal-canin-2.jpg',
+                        'images/products/royal-canin-3.jpg'
+                    ],
+                    description: 'Лечебный корм для собак с чувствительным пищеварением.',
+                    inStock: true,
+                    specs: {
+                        'Вес упаковки': '2 кг',
+                        'Тип': 'Сухой корм',
+                        'Производитель': 'Royal Canin, Франция',
+                        'Показания': 'Чувствительное пищеварение',
+                        'Состав': 'Рис, птица, рыбий жир'
+                    },
+                    reviews: [
+                        { author: 'Антон П.', avatar: 'АП', date: '5 марта 2026', rating: 5, text: 'Отличный корм, собака ест с удовольствием, проблемы с желудком прошли.' }
+                    ]
+                },
+                8: {
+                    name: 'Purina Pro Plan STERILISED',
+                    price: '890',
+                    oldPrice: null,
+                    sku: '12352',
+                    category: 'korma',
+                    categoryName: 'Корма',
+                    subCategory: 'cats',
+                    subCategoryName: 'Для кошек',
+                    image: 'images/products/purina.jpg',
+                    images: [
+                        'images/products/purina.jpg',
+                        'images/products/purina-2.jpg',
+                        'images/products/purina-3.jpg'
+                    ],
+                    description: 'Корм для стерилизованных кошек с чувствительным пищеварением.',
+                    inStock: true,
+                    specs: {
+                        'Вес упаковки': '1.5 кг',
+                        'Тип': 'Сухой корм',
+                        'Производитель': 'Purina, США',
+                        'Показания': 'Здоровье мочевыводящих путей',
+                        'Состав': 'Лосось, рис, кукуруза'
+                    },
+                    reviews: [
+                        { author: 'Оксана В.', avatar: 'ОВ', date: '12 марта 2026', rating: 4, text: 'Хороший корм для стерилизованных кошек, едят с удовольствием.' }
+                    ]
+                },
+                9: {
+                    name: 'Миска керамическая',
+                    price: '450',
+                    oldPrice: null,
+                    sku: '12353',
+                    category: 'aksessuary',
+                    categoryName: 'Аксессуары',
+                    subCategory: 'bowls',
+                    subCategoryName: 'Миски',
+                    image: 'images/products/bowl.jpg',
+                    images: [
+                        'images/products/bowl.jpg',
+                        'images/products/bowl-2.jpg',
+                        'images/products/bowl-3.jpg'
+                    ],
+                    description: 'Керамическая миска для корма или воды. Устойчивая, легко моется.',
+                    inStock: true,
+                    specs: {
+                        'Объем': '450 мл',
+                        'Материал': 'Керамика',
+                        'Цвет': 'Белый с рисунком',
+                        'Диаметр': '15 см',
+                        'Высота': '6 см'
+                    },
+                    reviews: [
+                        { author: 'Ирина К.', avatar: 'ИК', date: '8 марта 2026', rating: 5, text: 'Красивая миска, тяжелая, не переворачивается. Кошке нравится.' }
+                    ]
+                },
+                10: {
+                    name: 'Лежанка "Уют"',
+                    price: '1250',
+                    oldPrice: '1500',
+                    sku: '12354',
+                    category: 'aksessuary',
+                    categoryName: 'Аксессуары',
+                    subCategory: 'beds',
+                    subCategoryName: 'Лежанки',
+                    image: 'images/products/bed.jpg',
+                    images: [
+                        'images/products/bed.jpg',
+                        'images/products/bed-2.jpg',
+                        'images/products/bed-3.jpg'
+                    ],
+                    description: 'Мягкая лежанка для кошек и собак мелких пород. Съемный чехол.',
+                    inStock: true,
+                    specs: {
+                        'Размер': '50x40 см',
+                        'Материал': 'Велюр, холлофайбер',
+                        'Цвет': 'Коричневый',
+                        'Стирка': 'Деликатная 30°C',
+                        'Назначение': 'Для кошек и собак до 10 кг'
+                    },
+                    reviews: [
+                        { author: 'Сергей М.', avatar: 'СМ', date: '1 марта 2026', rating: 5, text: 'Кот в восторге, спит только в ней. Качество отличное.' },
+                        { author: 'Алина Г.', avatar: 'АГ', date: '20 февраля 2026', rating: 4, text: 'Хорошая лежанка, но маловата для собаки 8 кг.' }
+                    ]
+                },
+                11: {
+                    name: 'Шампунь для кошек и собак',
+                    price: '380',
+                    oldPrice: null,
+                    sku: '12355',
+                    category: 'khimiya',
+                    categoryName: 'Химия для ухода',
+                    subCategory: 'shampoos',
+                    subCategoryName: 'Шампуни',
+                    image: 'images/products/shampoo.jpg',
+                    images: [
+                        'images/products/shampoo.jpg',
+                        'images/products/shampoo-2.jpg',
+                        'images/products/shampoo-3.jpg'
+                    ],
+                    description: 'Гипоаллергенный шампунь с ромашкой. Подходит для частого применения.',
+                    inStock: true,
+                    specs: {
+                        'Объем': '250 мл',
+                        'Тип': 'Гипоаллергенный',
+                        'Состав': 'Экстракт ромашки, ПАВ',
+                        'Применение': 'Для всех пород'
+                    },
+                    reviews: [
+                        { author: 'Дарья С.', avatar: 'ДС', date: '15 февраля 2026', rating: 5, text: 'Отличный шампунь, не сушит кожу, пахнет приятно.' }
+                    ]
+                },
+                12: {
+                    name: 'Спрей от блох',
+                    price: '420',
+                    oldPrice: '480',
+                    sku: '12356',
+                    category: 'khimiya',
+                    categoryName: 'Химия для ухода',
+                    subCategory: 'sprays',
+                    subCategoryName: 'Спреи',
+                    image: 'images/products/flea-spray.jpg',
+                    images: [
+                        'images/products/flea-spray.jpg',
+                        'images/products/flea-spray-2.jpg',
+                        'images/products/flea-spray-3.jpg'
+                    ],
+                    description: 'Эффективное средство от блох, клещей и власоедов.',
+                    inStock: true,
+                    specs: {
+                        'Объем': '150 мл',
+                        'Действующее вещество': 'Фипронил',
+                        'Способ применения': 'Распылить на шерсть',
+                        'Защита': 'До 30 дней',
+                        'Возраст': 'С 3 месяцев'
+                    },
+                    reviews: [
+                        { author: 'Максим Л.', avatar: 'МЛ', date: '5 марта 2026', rating: 5, text: 'Отличное средство, блохи исчезли после первого применения.' },
+                        { author: 'Виктория А.', avatar: 'ВА', date: '28 февраля 2026', rating: 4, text: 'Помогает, но запах резковат.' }
+                    ]
+                }
+            };
+
+            // ===== ЗАГРУЗКА ДАННЫХ ТОВАРА =====
+            const product = products[productId] || products[1];
+
+            // ===== ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ =====
+            function getReviewWord(count) {
+                if (count % 10 === 1 && count % 100 !== 11) return 'отзыв';
+                if ([2, 3, 4].includes(count % 10) && ![12, 13, 14].includes(count % 100)) return 'отзыва';
+                return 'отзывов';
+            }
+
+            function showProductNotification(message) {
+                document.querySelector('.product-notification')?.remove();
+                const notification = document.createElement('div');
+                notification.className = 'product-notification';
+                notification.textContent = message;
+                document.body.appendChild(notification);
+                
+                setTimeout(() => notification.classList.add('show'), 10);
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                    setTimeout(() => notification.remove(), 300);
+                }, 3000);
+            }
+
+            // ===== ОБНОВЛЕНИЕ СТРАНИЦЫ =====
+            function updateProductPage() {
+                // Заголовок и хлебные крошки
+                document.getElementById('productTitle').textContent = product.name;
+                document.getElementById('breadcrumbProduct').textContent = product.name;
+                document.title = `ВЕТ Кабинет - ${product.name}`;
+                
+                const breadcrumbCategory = document.getElementById('breadcrumbCategory').querySelector('a');
+                breadcrumbCategory.textContent = product.categoryName;
+                breadcrumbCategory.href = `category.html?cat=${product.category}`;
+                
+                // Изображение
+                const mainImage = document.getElementById('mainProductImage');
+                mainImage.src = product.image;
+                mainImage.alt = product.name;
+                
+                // Наличие
+                const availabilityBadge = document.getElementById('availabilityBadge');
+                availabilityBadge.textContent = product.inStock ? 'В наличии' : 'Нет в наличии';
+                availabilityBadge.className = `availability-badge ${product.inStock ? 'in-stock' : 'out-of-stock'}`;
+                
+                // Рейтинг
+                const reviewsCount = product.reviews?.length || 0;
+                const totalRating = reviewsCount > 0 
+                    ? (product.reviews.reduce((sum, r) => sum + r.rating, 0) / reviewsCount).toFixed(1)
+                    : '0.0';
+                
+                document.getElementById('ratingValue').textContent = totalRating;
+                document.getElementById('ratingCount').textContent = `(${reviewsCount} ${getReviewWord(reviewsCount)})`;
+                document.getElementById('summaryRating').textContent = totalRating;
+                document.getElementById('summaryCount').textContent = `${reviewsCount} ${getReviewWord(reviewsCount)}`;
+                
+                // Артикул
+                document.getElementById('productSku').textContent = `Артикул: ${product.sku}`;
+                
+                // Цена
+                document.getElementById('currentPrice').textContent = product.price + ' ₽';
+                
+                const oldPriceEl = document.getElementById('oldPrice');
+                const discountEl = document.getElementById('priceDiscount');
+                
+                if (product.oldPrice) {
+                    oldPriceEl.textContent = product.oldPrice + ' ₽';
+                    oldPriceEl.style.display = 'inline';
+                    discountEl.style.display = 'inline';
+                    discountEl.textContent = `-${Math.round((1 - product.price / product.oldPrice) * 100)}%`;
+                } else {
+                    oldPriceEl.style.display = 'none';
+                    discountEl.style.display = 'none';
+                }
+                
+                // Описание
+                document.getElementById('productDescription').textContent = product.description;
+                
+                // Характеристики
+                const specsList = document.getElementById('specsList');
+                specsList.innerHTML = '';
+                Object.entries(product.specs).forEach(([name, value]) => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<span class="spec-name">${name}:</span> <span class="spec-value">${value}</span>`;
+                    specsList.appendChild(li);
+                });
+                
+                // Категория и подкатегория
+                document.getElementById('categoryLink').textContent = product.categoryName;
+                document.getElementById('categoryLink').href = `category.html?cat=${product.category}`;
+                document.getElementById('subCategoryLink').textContent = product.subCategoryName;
+                document.getElementById('subCategoryLink').href = `category.html?cat=${product.category}&sub=${product.subCategory}`;
+            }
+
+            // ===== МИНИАТЮРЫ =====
+            function setupThumbnails() {
+                const container = document.getElementById('productThumbnails');
+                const mainImage = document.getElementById('mainProductImage');
+                if (!container || !mainImage || !product.images) return;
+                
+                container.innerHTML = '';
+                product.images.forEach((src, index) => {
+                    const thumb = document.createElement('div');
+                    thumb.className = `thumbnail ${index === 0 ? 'active' : ''}`;
+                    thumb.dataset.image = src;
+                    
+                    const img = document.createElement('img');
+                    img.src = src;
+                    img.alt = `${product.name} - фото ${index + 1}`;
+                    img.loading = 'lazy';
+                    thumb.appendChild(img);
+                    
+                    thumb.addEventListener('click', () => {
+                        document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
+                        thumb.classList.add('active');
+                        mainImage.src = thumb.dataset.image;
+                    });
+                    
+                    container.appendChild(thumb);
+                });
+            }
+
+            // ===== ВЫБОР КОЛИЧЕСТВА =====
+            function setupQuantitySelector() {
+                const input = document.getElementById('quantity');
+                const decrease = document.getElementById('decreaseQuantity');
+                const increase = document.getElementById('increaseQuantity');
+                
+                if (!input) return;
+                
+                const updateValue = (newVal) => {
+                    input.value = Math.min(99, Math.max(1, newVal));
+                };
+                
+                decrease?.addEventListener('click', () => updateValue(parseInt(input.value) - 1));
+                increase?.addEventListener('click', () => updateValue(parseInt(input.value) + 1));
+                input.addEventListener('change', () => updateValue(parseInt(input.value)));
+            }
+
+            // ===== ДОБАВЛЕНИЕ В КОРЗИНУ =====
+            function setupAddToCart() {
+                const btn = document.getElementById('addToCartBtn');
+                const cartCount = document.querySelector('.cart-count');
+                const quantityInput = document.getElementById('quantity');
+                
+                btn?.addEventListener('click', () => {
+                    const quantity = parseInt(quantityInput?.value) || 1;
+                    const productName = document.getElementById('productTitle')?.textContent || 'Товар';
+                    
+                    // Получаем текущую корзину
+                    let cart = JSON.parse(localStorage.getItem('vetCart') || '[]');
+                    
+                    // Ищем существующий товар
+                    const existingItem = cart.find(item => item.id == productId);
+                    
+                    if (existingItem) {
+                        // Если товар уже есть, увеличиваем количество
+                        existingItem.quantity += quantity;
+                    } else {
+                        // Если товара нет, добавляем новый
+                        cart.push({
+                            id: productId,
+                            name: product.name,
+                            price: product.price,
+                            image: product.image,
+                            sku: product.sku,
+                            quantity: quantity
+                        });
+                    }
+                    
+                    // Сохраняем в localStorage
+                    localStorage.setItem('vetCart', JSON.stringify(cart));
+                    
+                    // Обновляем счетчик
+                    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+                    if (cartCount) cartCount.textContent = totalItems;
+                    
+                    showProductNotification(`Товар "${productName}" добавлен в корзину (${quantity} шт.)`);
+                });
+            }
+
+            // ===== ПОХОЖИЕ ТОВАРЫ =====
+            function setupRelatedProducts() {
+                const grid = document.getElementById('relatedProductsGrid');
+                const template = document.getElementById('relatedProductTemplate');
+                const cartCount = document.querySelector('.cart-count');
+                
+                if (!grid || !template) return;
+                
+                const related = Object.values(products)
+                    .filter(p => p.category === product.category && p.name !== product.name)
+                    .slice(0, 4)
+                    .map(p => ({
+                        id: Object.keys(products).find(key => products[key].name === p.name),
+                        name: p.name,
+                        price: p.price,
+                        image: p.image,
+                        sku: p.sku
+                    }));
+                
+                related.forEach(prod => {
+                    const card = template.content.cloneNode(true);
+                    
+                    const img = card.querySelector('.related-card__image img');
+                    if (img) {
+                        img.src = prod.image;
+                        img.alt = prod.name;
+                    }
+                    
+                    const imageLink = card.querySelector('.related-card__image');
+                    if (imageLink) imageLink.href = `product.html?id=${prod.id}`;
+                    
+                    const titleLink = card.querySelector('.related-card__title');
+                    if (titleLink) {
+                        titleLink.textContent = prod.name;
+                        titleLink.href = `product.html?id=${prod.id}`;
+                    }
+                    
+                    const priceEl = card.querySelector('.related-card__price');
+                    if (priceEl) priceEl.textContent = prod.price + ' ₽';
+                    
+                    // Создаем контейнер для кнопки
+                    const actionContainer = document.createElement('div');
+                    actionContainer.className = 'related-card__actions';
+                    
+                    // Проверяем, есть ли товар в корзине
+                    const cart = JSON.parse(localStorage.getItem('vetCart') || '[]');
+                    const isInCart = cart.some(item => item.id == prod.id);
+                    
+                    if (isInCart) {
+                        // Если товар в корзине - показываем ссылку
+                        const cartLink = document.createElement('a');
+                        cartLink.href = 'cart.html';
+                        cartLink.className = 'related-card__cart-link';
+                        cartLink.innerHTML = 'В корзине →';
+                        actionContainer.appendChild(cartLink);
+                    } else {
+                        // Если нет - показываем кнопку "Купить"
+                        const buyBtn = document.createElement('button');
+                        buyBtn.className = 'related-card__btn';
+                        buyBtn.textContent = 'Купить';
+                        
+                        buyBtn.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            
+                            // Добавляем в корзину
+                            let cart = JSON.parse(localStorage.getItem('vetCart') || '[]');
+                            const existingItem = cart.find(item => item.id == prod.id);
+                            
+                            if (existingItem) {
+                                existingItem.quantity += 1;
+                            } else {
+                                cart.push({
+                                    id: prod.id,
+                                    name: prod.name,
+                                    price: prod.price,
+                                    image: prod.image,
+                                    sku: prod.sku,
+                                    quantity: 1
+                                });
+                            }
+                            
+                            localStorage.setItem('vetCart', JSON.stringify(cart));
+                            
+                            // Обновляем счетчик
+                            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+                            if (cartCount) cartCount.textContent = totalItems;
+                            
+                            // Меняем кнопку на ссылку
+                            const cartLink = document.createElement('a');
+                            cartLink.href = 'cart.html';
+                            cartLink.className = 'related-card__cart-link';
+                            cartLink.innerHTML = 'В корзине';
+                            actionContainer.innerHTML = '';
+                            actionContainer.appendChild(cartLink);
+                            
+                            showProductNotification(`Товар "${prod.name}" добавлен в корзину`);
+                        });
+                        
+                        actionContainer.appendChild(buyBtn);
+                    }
+                    
+                    // Заменяем стандартную кнопку на наш контейнер
+                    const oldBtn = card.querySelector('.related-card__btn');
+                    if (oldBtn) {
+                        oldBtn.replaceWith(actionContainer);
+                    }
+                    
+                    grid.appendChild(card);
+                });
+            }
+
+            // ===== ОТЗЫВЫ =====
+            function setupReviews() {
+                const list = document.getElementById('reviewsList');
+                const template = document.getElementById('reviewTemplate');
+                const container = document.querySelector('.reviews-more');
+                const btn = document.querySelector('.reviews-more .btn-outline');
+                
+                if (!list || !template) return;
+                
+                if (!product.reviews?.length) {
+                    list.innerHTML = '<div class="no-reviews">Пока нет отзывов. Будьте первым!</div>';
+                    if (container) container.style.display = 'none';
+                    return;
+                }
+                
+                const allReviews = product.reviews;
+                const initialCount = 3;
+                let showingAll = false;
+                
+                const displayReviews = (showAll) => {
+                    list.innerHTML = '';
+                    const reviewsToShow = showAll ? allReviews : allReviews.slice(0, initialCount);
+                    
+                    reviewsToShow.forEach(review => {
+                        const el = template.content.cloneNode(true);
+                        
+                        el.querySelector('.review-avatar').textContent = review.avatar;
+                        el.querySelector('.review-name').textContent = review.author;
+                        el.querySelector('.review-date').textContent = review.date;
+                        
+                        const stars = el.querySelector('.review-rating .rating-stars');
+                        stars.innerHTML = '';
+                        for (let i = 0; i < 5; i++) {
+                            const star = document.createElement('span');
+                            star.className = 'star';
+                            star.textContent = '★';
+                            star.style.color = i < review.rating ? '#FFD700' : '#ddd';
+                            stars.appendChild(star);
+                        }
+                        
+                        el.querySelector('.review-rating .rating-value').textContent = review.rating + '.0';
+                        el.querySelector('.review-body').textContent = review.text;
+                        
+                        list.appendChild(el);
+                    });
+                    
+                    if (container && btn) {
+                        if (allReviews.length > initialCount) {
+                            container.style.display = 'block';
+                            btn.textContent = showingAll ? 'Скрыть' : `Показать еще (${allReviews.length - initialCount})`;
+                        } else {
+                            container.style.display = 'none';
+                        }
+                    }
+                };
+                
+                displayReviews(false);
+                
+                if (btn) {
+                    btn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        showingAll = !showingAll;
+                        displayReviews(showingAll);
+                    });
+                }
+            }
+
+            // ===== ИНИЦИАЛИЗАЦИЯ =====
+            updateProductPage();
+            setupThumbnails();
+            setupQuantitySelector();
+            setupAddToCart();
+            setupRelatedProducts();
+            setupReviews();
+        });
+    </script>
+</body>
+</html>
